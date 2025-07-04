@@ -4,6 +4,7 @@ local Path = require "plenary.path"
 local from_entry = require "telescope.from_entry"
 local Previewer = require "telescope.previewers.previewer"
 local putil = require "telescope.previewers.utils"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local defaulter = utils.make_default_callable
 
@@ -42,13 +43,13 @@ local bat_maker = function(filename, lnum, start, finish)
 
   if has_less then
     if start then
-      vim.list_extend(command, { "--pager", string.format("less -RS +%s", start) })
+      vim.list_extend(command, { "--pager", Msgstr("less -RS +%s", { start }) })
     else
       vim.list_extend(command, { "--pager", "less -RS" })
     end
   else
     if start and finish then
-      vim.list_extend(command, { "-r", string.format("%s:%s", start, finish) })
+      vim.list_extend(command, { "-r", Msgstr("%s:%s", {start, finish}) })
     end
   end
 
@@ -250,7 +251,7 @@ previewers.cat = defaulter(function(opts)
   local cwd = opts.cwd or vim.loop.cwd()
 
   return previewers.new_termopen_previewer {
-    title = "File Preview",
+    title = Msgstr("File Preview"),
     dyn_title = function(_, entry)
       return Path:new(from_entry.path(entry, false, false)):normalize(cwd)
     end,
@@ -273,7 +274,7 @@ previewers.vimgrep = defaulter(function(opts)
   local cwd = opts.cwd or vim.loop.cwd()
 
   return previewers.new_termopen_previewer {
-    title = "Grep Preview",
+    title = Msgstr("Grep Preview"),
     dyn_title = function(_, entry)
       return Path:new(from_entry.path(entry, false, false)):normalize(cwd)
     end,
@@ -308,7 +309,7 @@ previewers.qflist = defaulter(function(opts)
   local cwd = opts.cwd or vim.loop.cwd()
 
   return previewers.new_termopen_previewer {
-    title = "Grep Preview",
+    title = Msgstr("Grep Preview"),
     dyn_title = function(_, entry)
       return Path:new(from_entry.path(entry, false, false)):normalize(cwd)
     end,

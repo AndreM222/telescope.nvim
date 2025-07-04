@@ -1,4 +1,5 @@
 local _extensions = require "telescope._extensions"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local telescope = {}
 
@@ -162,10 +163,10 @@ telescope.__format_setup_keys = function()
     local desc = descriptions[name]
 
     table.insert(result, "")
-    table.insert(result, string.format("%s*telescope.defaults.%s*", string.rep(" ", 70 - 20 - #name), name))
-    table.insert(result, string.format("%s: ~", name))
+    table.insert(result, Msgstr("%s*telescope.defaults.%s*", { string.rep(" ", 70 - 20 - #name), name }))
+    table.insert(result, Msgstr("%s: ~", { name }))
     for _, line in ipairs(vim.split(desc, "\n")) do
-      table.insert(result, string.format("    %s", line))
+      table.insert(result, Msgstr("    %s", { line }))
     end
   end
 

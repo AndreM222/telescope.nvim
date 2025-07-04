@@ -1,4 +1,5 @@
 local scroller = {}
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local range_calculators = {
   ascending = function(max_results, num_results)
@@ -57,25 +58,25 @@ scroller.create = function(scroll_strategy, sorting_strategy)
 
     if result < 0 then
       error(
-        string.format(
-          "Must never return a negative row: { result = %s, args = { %s %s %s } }",
+        Msgstr(
+          "Must never return a negative row: { result = %s, args = { %s %s %s } }", {
           result,
           max_results,
           num_results,
           row
-        )
+        })
       )
     end
 
     if result > max_results then
       error(
-        string.format(
-          "Must never exceed max results: { result = %s, args = { %s %s %s } }",
+        Msgstr(
+          "Must never exceed max results: { result = %s, args = { %s %s %s } }", {
           result,
           max_results,
           num_results,
           row
-        )
+        })
       )
     end
 

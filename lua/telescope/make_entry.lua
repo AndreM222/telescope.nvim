@@ -38,6 +38,7 @@ local entry_display = require "telescope.pickers.entry_display"
 local utils = require "telescope.utils"
 local strings = require "plenary.strings"
 local Path = require "plenary.path"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local treesitter_type_highlight = {
   ["associated"] = "TSConstant",
@@ -321,9 +322,9 @@ do
         if not disable_coordinates then
           if entry.lnum then
             if entry.col then
-              coordinates = string.format(":%s:%s:", entry.lnum, entry.col)
+              coordinates = Msgstr(":%s:%s:", { entry.lnum, entry.col })
             else
-              coordinates = string.format(":%s:", entry.lnum)
+              coordinates = Msgstr(":%s:", { entry.lnum })
             end
           end
         end
@@ -438,7 +439,7 @@ function make_entry.gen_from_git_commits(opts)
 
     if not msg then
       sha = entry
-      msg = "<empty commit message>"
+      msg = Msgstr("<empty commit message>")
     end
 
     return make_entry.set_default_entry_mt({
@@ -459,9 +460,9 @@ function make_entry.gen_from_quickfix(opts)
 
   local make_display = function(entry)
     local display_filename, path_style = utils.transform_path(opts, entry.filename)
-    local display_string = string.format("%s:%d:%d", display_filename, entry.lnum, entry.col)
+    local display_string = Msgstr("%s:%d:%d", { display_filename, entry.lnum, entry.col })
     if hidden then
-      display_string = string.format("%4d:%2d", entry.lnum, entry.col)
+      display_string = Msgstr("%4d:%2d", {entry.lnum, entry.col})
     end
 
     if show_line then
@@ -824,7 +825,7 @@ function make_entry.gen_from_registers(opts)
     local contents = vim.fn.getreg(entry, 1)
     return make_entry.set_default_entry_mt({
       value = entry,
-      ordinal = string.format("%s %s", entry, contents),
+      ordinal = Msgstr("%s %s", { entry, contents }),
       content = contents,
       display = make_display,
     }, opts)
@@ -922,7 +923,7 @@ function make_entry.gen_from_picker(opts)
     return make_entry.set_default_entry_mt({
       value = entry,
       text = entry.prompt_title,
-      ordinal = string.format("%s %s", entry.prompt_title, vim.F.if_nil(entry.default_text, "")),
+      ordinal = Msgstr("%s %s", { entry.prompt_title, vim.F.if_nil(entry.default_text, "") }),
       display = make_display,
     }, opts)
   end
@@ -1007,7 +1008,7 @@ function make_entry.gen_from_vimoptions(opts)
         type = o.type,
         scope = o.scope,
       },
-      ordinal = string.format("%s %s %s %s", o.name, o.type, o.scope, utils.display_termcodes(tostring(o.value))),
+      ordinal = Msgstr("%s %s %s %s", { o.name, o.type, o.scope, utils.display_termcodes(tostring(o.value)) }),
     }
 
     return make_entry.set_default_entry_mt(entry, opts)
@@ -1187,7 +1188,7 @@ function make_entry.gen_from_diagnostics(opts)
     local display_path, path_style = utils.transform_path(opts, entry.filename)
 
     -- add styling of entries
-    local pos = string.format("%4d:%2d", entry.lnum, entry.col)
+    local pos = Msgstr("%4d:%2d", { entry.lnum, entry.col })
     local line_info_text = signs and signs[entry.type] .. " " or ""
     local line_info = {
       opts.disable_coordinates and line_info_text or line_info_text .. pos,

@@ -90,12 +90,13 @@ That's the next step to scrolling.
 
 
 --]]
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local resolver = {}
 local _resolve_map = {}
 
 local throw_invalid_config_option = function(key, value)
-  error(string.format("Invalid configuration option for '%s': '%s'", key, tostring(value)), 2)
+  error(Msgstr("Invalid configuration option for '%s': '%s'", {key, tostring(value)}), 2)
 end
 
 -- Booleans

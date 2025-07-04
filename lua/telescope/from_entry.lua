@@ -8,6 +8,7 @@ This will provide standard mechanism for accessing information from an entry.
 
 --============================================================================= ]]
 local utils = require "telescope.utils"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local from_entry = {}
 
@@ -21,7 +22,7 @@ function from_entry.path(entry, validate, escape)
     path = entry.value
   end
   if path == nil then
-    require("telescope.log").error(string.format("Invalid Entry: '%s'", vim.inspect(entry)))
+    require("telescope.log").error(Msgstr("Invalid Entry: '%s'", {vim.inspect(entry)}))
     return
   end
 

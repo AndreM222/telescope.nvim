@@ -20,6 +20,9 @@ local utils = require "telescope.utils"
 
 local action_state = require "telescope.actions.state"
 
+local Msgstr = require('telescope.langMSG').Msgstr
+
+
 local transform_mod = require("telescope.actions.mt").transform_mod
 
 local action_set = setmetatable({}, {
@@ -91,17 +94,17 @@ do
       end, vim.tbl_keys(map))
       table.sort(valid_commands)
       error(
-        string.format(
-          "There was no associated buffer command for %q.\nValid commands are: %s.",
+        Msgstr(
+          "There was no associated buffer command for %q.\nValid commands are: %s.", {
           command,
           table.concat(valid_commands, ", ")
-        )
+        })
       )
     end
     if buf_command ~= "drop" and buf_command ~= "tab drop" then
-      vim.cmd(string.format("%s %d", buf_command, bufnr))
+      vim.cmd(Msgstr("%s %d", { buf_command, bufnr }))
     else
-      vim.cmd(string.format("%s %s", buf_command, vim.fn.fnameescape(vim.api.nvim_buf_get_name(bufnr))))
+      vim.cmd(Msgstr("%s %s", { buf_command, vim.fn.fnameescape(vim.api.nvim_buf_get_name(bufnr)) }))
     end
   end
 end
@@ -129,7 +132,7 @@ action_set.edit = function(prompt_bufnr, command)
 
   if not entry then
     utils.notify("actions.set.edit", {
-      msg = "Nothing currently selected",
+      msg = Msgstr("Nothing currently selected"),
       level = "WARN",
     })
     return
@@ -149,7 +152,7 @@ action_set.edit = function(prompt_bufnr, command)
     local value = entry.value
     if not value then
       utils.notify("actions.set.edit", {
-        msg = "Could not do anything with blank line...",
+        msg = Msgstr("Could not do anything with blank line..."),
         level = "WARN",
       })
       return
@@ -197,7 +200,7 @@ action_set.edit = function(prompt_bufnr, command)
     -- prevents restarting lsp server
     if vim.api.nvim_buf_get_name(0) ~= filename or command ~= "edit" then
       filename = Path:new(filename):normalize(vim.loop.cwd())
-      pcall(vim.cmd, string.format("%s %s", command, vim.fn.fnameescape(filename)))
+      pcall(vim.cmd, Msgstr("%s %s", { command, vim.fn.fnameescape(filename) }))
     end
   end
 

@@ -1,6 +1,7 @@
 local conf = require("telescope.config").values
 local Path = require "plenary.path"
 local utils = require "telescope.utils"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local uv = vim.loop
 
@@ -117,7 +118,7 @@ end
 function histories.History:get_next(line, picker)
   if not self.enabled then
     utils.notify("History:get_next", {
-      msg = "You are cycling to next the history item but history is disabled. Read ':help telescope.defaults.history'",
+      msg = Msgstr("You are cycling to next the history item but history is disabled. Read ':help telescope.defaults.history'"),
       level = "WARN",
     })
     return false
@@ -146,7 +147,7 @@ end
 function histories.History:get_prev(line, picker)
   if not self.enabled then
     utils.notify("History:get_prev", {
-      msg = "You are cycling to next the history item but history is disabled. Read ':help telescope.defaults.history'",
+      msg = Msgstr("You are cycling to next the history item but history is disabled. Read ':help telescope.defaults.history'"),
       level = "WARN",
     })
     return false

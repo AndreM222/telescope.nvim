@@ -9,6 +9,7 @@ local previewers = require "telescope.previewers"
 local p_window = require "telescope.pickers.window"
 local state = require "telescope.state"
 local utils = require "telescope.utils"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local conf = require("telescope.config").values
 
@@ -51,10 +52,10 @@ internal.builtin = function(opts)
     })
   end
 
-  local title = "Telescope Builtin"
+  local title = Msgstr("Telescope Builtin")
 
   if opts.include_extensions then
-    title = "Telescope Pickers"
+    title = Msgstr("Telescope Pickers")
     for ext, funcs in pairs(require("telescope").extensions) do
       for func_name, func_obj in pairs(funcs) do
         -- Only include exported functions whose name doesn't begin with an underscore
@@ -62,7 +63,7 @@ internal.builtin = function(opts)
           local debug_info = debug.getinfo(func_obj)
           table.insert(objs, {
             filename = string.sub(debug_info.source, 2),
-            text = string.format("%s : %s", ext, func_name),
+            text = Msgstr("%s : %s", { ext, func_name }),
           })
         end
       end
@@ -135,7 +136,7 @@ internal.resume = function(opts)
   local cached_pickers = state.get_global_key "cached_pickers"
   if cached_pickers == nil or vim.tbl_isempty(cached_pickers) then
     utils.notify("builtin.resume", {
-      msg = "No cached picker(s).",
+      msg = Msgstr("No cached picker(s)."),
       level = "INFO",
     })
     return
@@ -143,7 +144,7 @@ internal.resume = function(opts)
   local picker = cached_pickers[opts.cache_index]
   if picker == nil then
     utils.notify("builtin.resume", {
-      msg = string.format("Index too large as there are only '%s' pickers cached", #cached_pickers),
+      msg = Msgstr("Index too large as there are only '%s' pickers cached", {#cached_pickers}),
       level = "ERROR",
     })
     return
@@ -178,7 +179,7 @@ internal.pickers = function(opts)
   local cached_pickers = state.get_global_key "cached_pickers"
   if cached_pickers == nil or vim.tbl_isempty(cached_pickers) then
     utils.notify("builtin.pickers", {
-      msg = "No cached picker(s).",
+      msg = Msgstr("No cached picker(s)."),
       level = "INFO",
     })
     return
@@ -194,7 +195,7 @@ internal.pickers = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Pickers",
+      prompt_title = Msgstr("Pickers"),
       finder = finders.new_table {
         results = cached_pickers,
         entry_maker = make_entry.gen_from_picker(opts),
@@ -248,7 +249,7 @@ internal.planets = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Planets",
+      prompt_title = Msgstr("Planets"),
       finder = finders.new_table {
         results = acceptable_files,
         entry_maker = function(line)
@@ -297,8 +298,7 @@ internal.symbols = function(opts)
 
   if #files == 0 then
     utils.notify("builtin.symbols", {
-      msg = "No sources found! Check out https://github.com/nvim-telescope/telescope-symbols.nvim "
-        .. "for some prebuild symbols or how to create you own symbol source.",
+      msg = Msgstr("No sources found! Check out https://github.com/nvim-telescope/telescope-symbols.nvim for some prebuild symbols or how to create you own symbol source."),
       level = "ERROR",
     })
     return
@@ -327,7 +327,7 @@ internal.symbols = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Symbols",
+      prompt_title = Msgstr("Symbols"),
       finder = finders.new_table {
         results = results,
         entry_maker = function(entry)
@@ -354,7 +354,7 @@ end
 internal.commands = function(opts)
   pickers
     .new(opts, {
-      prompt_title = "Commands",
+      prompt_title = Msgstr("Commands"),
       finder = finders.new_table {
         results = (function()
           local command_iter = vim.api.nvim_get_commands {}
@@ -389,7 +389,7 @@ internal.commands = function(opts)
 
           actions.close(prompt_bufnr)
           local val = selection.value
-          local cmd = string.format([[:%s ]], val.name)
+          local cmd = Msgstr([[:%s ]], {val.name})
 
           if val.nargs == "0" then
             local cr = vim.api.nvim_replace_termcodes("<cr>", true, false, true)
@@ -410,13 +410,13 @@ internal.quickfix = function(opts)
   local locations = vim.fn.getqflist({ [opts.id and "id" or "nr"] = qf_identifier, items = true }).items
 
   if vim.tbl_isempty(locations) then
-    utils.notify("builtin.quickfix", { msg = "No quickfix items", level = "INFO" })
+    utils.notify("builtin.quickfix", { msg = Msgstr("No quickfix items"), level = "INFO" })
     return
   end
 
   pickers
     .new(opts, {
-      prompt_title = "Quickfix",
+      prompt_title = Msgstr("Quickfix"),
       finder = finders.new_table {
         results = locations,
         entry_maker = opts.entry_maker or make_entry.gen_from_quickfix(opts),
@@ -450,13 +450,13 @@ internal.quickfixhistory = function(opts)
   local qf_entry_maker = make_entry.gen_from_quickfix(opts)
   pickers
     .new(opts, {
-      prompt_title = "Quickfix History",
+      prompt_title = Msgstr("Quickfix History"),
       finder = finders.new_table {
         results = qflists,
         entry_maker = entry_maker,
       },
       previewer = previewers.new_buffer_previewer {
-        title = "Quickfix List Preview",
+        title = Msgstr("Quickfix List Preview"),
         dyn_title = function(_, entry)
           return entry.title
         end,
@@ -507,13 +507,13 @@ internal.loclist = function(opts)
   end
 
   if vim.tbl_isempty(locations) then
-    utils.notify("builtin.loclist", { msg = "No loclist items", level = "INFO" })
+    utils.notify("builtin.loclist", { msg = Msgstr("No loclist items"), level = "INFO" })
     return
   end
 
   pickers
     .new(opts, {
-      prompt_title = "Loclist",
+      prompt_title = Msgstr("Loclist"),
       finder = finders.new_table {
         results = locations,
         entry_maker = opts.entry_maker or make_entry.gen_from_quickfix(opts),
@@ -571,7 +571,7 @@ internal.oldfiles = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Oldfiles",
+      prompt_title = Msgstr("Oldfiles"),
       __locations_input = true,
       finder = finders.new_table {
         results = results,
@@ -606,7 +606,7 @@ internal.command_history = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Command History",
+      prompt_title = Msgstr("Command History"),
       finder = finders.new_table(results),
       sorter = conf.generic_sorter(opts),
 
@@ -636,7 +636,7 @@ internal.search_history = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Search History",
+      prompt_title = Msgstr("Search History"),
       finder = finders.new_table(results),
       sorter = conf.generic_sorter(opts),
 
@@ -668,7 +668,7 @@ internal.vim_options = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "options",
+      prompt_title = Msgstr("options"),
       finder = finders.new_table {
         results = res,
         entry_maker = opts.entry_maker or make_entry.gen_from_vimoptions(opts),
@@ -688,8 +688,8 @@ internal.vim_options = function(opts)
           end
 
           vim.api.nvim_feedkeys(
-            selection.value.type == "boolean" and string.format("%s:set %s!", esc, selection.value.name)
-              or string.format("%s:set %s=%s", esc, selection.value.name, selection.value.value),
+            selection.value.type == "boolean" and Msgstr("%s:set %s!", {esc, selection.value.name})
+              or Msgstr("%s:set %s=%s", {esc, selection.value.name, selection.value.value}),
             "m",
             true
           )
@@ -778,7 +778,7 @@ internal.help_tags = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Help",
+      prompt_title = Msgstr("Help"),
       finder = finders.new_table {
         results = tags,
         entry_maker = function(entry)
@@ -837,7 +837,7 @@ internal.man_pages = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Man",
+      prompt_title = Msgstr("Man"),
       finder = finders.new_oneshot_job(opts.man_cmd, opts),
       previewer = previewers.man.new(opts),
       sorter = conf.generic_sorter(opts),
@@ -886,7 +886,7 @@ internal.reloader = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Packages",
+      prompt_title = Msgstr("Packages"),
       finder = finders.new_table {
         results = package_list,
         entry_maker = opts.entry_maker or make_entry.gen_from_packages(opts),
@@ -905,7 +905,7 @@ internal.reloader = function(opts)
           actions.close(prompt_bufnr)
           require("plenary.reload").reload_module(selection.value)
           utils.notify("builtin.reloader", {
-            msg = string.format("[%s] - module reloaded", selection.value),
+            msg = Msgstr("[%s] - module reloaded", {selection.value}),
             level = "INFO",
           })
         end)
@@ -943,7 +943,7 @@ internal.buffers = function(opts)
   end, vim.api.nvim_list_bufs())
 
   if not next(bufnrs) then
-    utils.notify("builtin.buffers", { msg = "No buffers found with the provided options", level = "INFO" })
+    utils.notify("builtin.buffers", { msg = Msgstr("No buffers found with the provided options"), level = "INFO" })
     return
   end
 
@@ -990,7 +990,7 @@ internal.buffers = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Buffers",
+      prompt_title = Msgstr("Buffers"),
       finder = finders.new_table {
         results = buffers,
         entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts),
@@ -1072,7 +1072,7 @@ internal.colorscheme = function(opts)
   end
 
   local picker = pickers.new(opts, {
-    prompt_title = "Change Colorscheme",
+    prompt_title = Msgstr("Change Colorscheme"),
     finder = finders.new_table {
       results = colors,
     },
@@ -1170,7 +1170,7 @@ internal.marks = function(opts)
       local _, lnum, col, _ = unpack(v.pos)
       local name = cnf.name_func(mark, lnum)
       -- same format to :marks command
-      local line = string.format("%s %6d %4d %s", mark, lnum, col - 1, name)
+      local line = Msgstr("%s %6d %4d %s", {mark, lnum, col - 1, name})
       local row = {
         line = line,
         lnum = lnum,
@@ -1189,7 +1189,7 @@ internal.marks = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Marks",
+      prompt_title = Msgstr("Marks"),
       finder = finders.new_table {
         results = marks_table,
         entry_maker = opts.entry_maker or make_entry.gen_from_marks(opts),
@@ -1217,7 +1217,7 @@ internal.registers = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Registers",
+      prompt_title = Msgstr("Registers"),
       finder = finders.new_table {
         results = registers_table,
         entry_maker = opts.entry_maker or make_entry.gen_from_registers(opts),
@@ -1272,7 +1272,7 @@ internal.keymaps = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Key Maps",
+      prompt_title = Msgstr("Key Maps"),
       finder = finders.new_table {
         results = keymaps_table,
         entry_maker = opts.entry_maker or make_entry.gen_from_keymaps(opts),
@@ -1300,7 +1300,7 @@ internal.filetypes = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Filetypes",
+      prompt_title = Msgstr("Filetypes"),
       finder = finders.new_table {
         results = filetypes,
       },
@@ -1327,7 +1327,7 @@ internal.highlights = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Highlights",
+      prompt_title = Msgstr("Highlights"),
       finder = finders.new_table {
         results = highlights,
         entry_maker = opts.entry_maker or make_entry.gen_from_highlights(opts),
@@ -1358,7 +1358,7 @@ internal.autocommands = function(opts)
   end)
   pickers
     .new(opts, {
-      prompt_title = "autocommands",
+      prompt_title = Msgstr("autocommands"),
       finder = finders.new_table {
         results = autocmds,
         entry_maker = opts.entry_maker or make_entry.gen_from_autocommands(opts),
@@ -1417,7 +1417,7 @@ internal.spell_suggest = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Spelling Suggestions",
+      prompt_title = Msgstr("Spelling Suggestions"),
       finder = finders.new_table {
         results = suggestions,
       },
@@ -1461,7 +1461,7 @@ internal.tagstack = function(opts)
 
   if vim.tbl_isempty(tags) then
     utils.notify("builtin.tagstack", {
-      msg = "No tagstack available",
+      msg = Msgstr("No tagstack available"),
       level = "WARN",
     })
     return
@@ -1469,7 +1469,7 @@ internal.tagstack = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "TagStack",
+      prompt_title = Msgstr("TagStack"),
       finder = finders.new_table {
         results = tags,
         entry_maker = make_entry.gen_from_quickfix(opts),
@@ -1496,7 +1496,7 @@ internal.jumplist = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Jumplist",
+      prompt_title = Msgstr("Jumplist"),
       finder = finders.new_table {
         results = sorted_jumplist,
         entry_maker = make_entry.gen_from_quickfix(opts),

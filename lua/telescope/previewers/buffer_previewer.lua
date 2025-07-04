@@ -5,6 +5,7 @@ local putils = require "telescope.previewers.utils"
 local Previewer = require "telescope.previewers.previewer"
 local conf = require("telescope.config").values
 local global_state = require "telescope.state"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local pscan = require "plenary.scandir"
 
@@ -168,7 +169,7 @@ local handle_file_preview = function(filepath, bufnr, stat, opts)
     end
     if opts.preview.check_mime_type == true and has_file and (opts.ft == nil or opts.ft == "") then
       -- avoid SIGABRT in buffer previewer happening with utils.get_os_command_output
-      local mime_type = capture(string.format([[file --mime-type -b "%s"]], filepath))
+      local mime_type = capture(Msgstr([[file --mime-type -b "%s"]], { filepath }))
       if putils.binary_mime_type(mime_type) then
         if type(opts.preview.mime_hook) == "function" then
           opts.preview.mime_hook(filepath, bufnr, opts)
@@ -188,7 +189,7 @@ local handle_file_preview = function(filepath, bufnr, stat, opts)
         if type(opts.preview.filesize_hook) == "function" then
           opts.preview.filesize_hook(filepath, bufnr, opts)
         else
-          putils.set_preview_message(bufnr, opts.winid, "File exceeds preview size limit", opts.preview.msg_bg_fillchar)
+          putils.set_preview_message(bufnr, opts.winid, Msgstr("File exceeds preview size limit"), opts.preview.msg_bg_fillchar)
         end
         return
       end
@@ -221,7 +222,7 @@ local handle_file_preview = function(filepath, bufnr, stat, opts)
         end
         -- if we still dont have a ft we need to display the binary message
         if (opts.ft == nil or opts.ft == "") and possible_binary then
-          putils.set_preview_message(bufnr, opts.winid, "Binary cannot be previewed", opts.preview.msg_bg_fillchar)
+          putils.set_preview_message(bufnr, opts.winid, Msgstr("Binary cannot be previewed"), opts.preview.msg_bg_fillchar)
           return
         end
 
@@ -236,7 +237,7 @@ local handle_file_preview = function(filepath, bufnr, stat, opts)
         if type(opts.preview.timeout_hook) == "function" then
           opts.preview.timeout_hook(filepath, bufnr, opts)
         else
-          putils.set_preview_message(bufnr, opts.winid, "Previewer timed out", opts.preview.msg_bg_fillchar)
+          putils.set_preview_message(bufnr, opts.winid, Msgstr("Previewer timed out"), opts.preview.msg_bg_fillchar)
         end
         return
       end
@@ -489,7 +490,7 @@ previewers.cat = defaulter(function(opts)
   opts = opts or {}
   local cwd = opts.cwd or vim.loop.cwd()
   return previewers.new_buffer_previewer {
-    title = "File Preview",
+    title = Msgstr("File Preview"),
     dyn_title = function(_, entry)
       return Path:new(from_entry.path(entry, false, false)):normalize(cwd)
     end,
@@ -554,7 +555,7 @@ previewers.vimgrep = defaulter(function(opts)
   end
 
   return previewers.new_buffer_previewer {
-    title = "Grep Preview",
+    title = Msgstr("Grep Preview"),
     dyn_title = function(_, entry)
       return Path:new(from_entry.path(entry, false, false)):normalize(cwd)
     end,
@@ -633,7 +634,7 @@ previewers.ctags = defaulter(function(opts)
   end
 
   return previewers.new_buffer_previewer {
-    title = "Tags Preview",
+    title = Msgstr("Tags Preview"),
     teardown = function(self)
       if self.state and self.state.hl_id then
         pcall(vim.fn.matchdelete, self.state.hl_id, self.state.hl_win)
@@ -665,7 +666,7 @@ end, {})
 
 previewers.builtin = defaulter(function(opts)
   return previewers.new_buffer_previewer {
-    title = "Grep Preview",
+    title = Msgstr("Grep Preview"),
     teardown = search_teardown,
 
     get_buffer_by_name = function(_, entry)
@@ -696,7 +697,7 @@ end, {})
 
 previewers.help = defaulter(function(opts)
   return previewers.new_buffer_previewer {
-    title = "Help Preview",
+    title = Msgstr("Help Preview"),
     teardown = search_teardown,
 
     get_buffer_by_name = function(_, entry)
@@ -727,7 +728,7 @@ previewers.man = defaulter(function(opts)
     return vim.fn.executable "col" == 1 and { "col", "-bx" } or { "cat" }
   end)
   return previewers.new_buffer_previewer {
-    title = "Man Preview",
+    title = Msgstr("Man Preview"),
     get_buffer_by_name = function(_, entry)
       return entry.value .. "/" .. entry.section
     end,
@@ -794,7 +795,7 @@ previewers.git_branch_log = defaulter(function(opts)
   end
 
   return previewers.new_buffer_previewer {
-    title = "Git Branch Preview",
+    title = Msgstr("Git Branch Preview"),
     get_buffer_by_name = function(_, entry)
       return entry.value
     end,
@@ -828,7 +829,7 @@ end, {})
 
 previewers.git_stash_diff = defaulter(function(opts)
   return previewers.new_buffer_previewer {
-    title = "Git Stash Preview",
+    title = Msgstr("Git Stash Preview"),
     get_buffer_by_name = function(_, entry)
       return entry.value
     end,
@@ -851,7 +852,7 @@ end, {})
 
 previewers.git_commit_diff_to_parent = defaulter(function(opts)
   return previewers.new_buffer_previewer {
-    title = "Git Diff to Parent Preview",
+    title = Msgstr("Git Diff to Parent Preview"),
     teardown = search_teardown,
     get_buffer_by_name = function(_, entry)
       return entry.value
@@ -881,7 +882,7 @@ end, {})
 
 previewers.git_commit_diff_to_head = defaulter(function(opts)
   return previewers.new_buffer_previewer {
-    title = "Git Diff to Head Preview",
+    title = Msgstr("Git Diff to Head Preview"),
     teardown = search_teardown,
 
     get_buffer_by_name = function(_, entry)
@@ -912,7 +913,7 @@ end, {})
 
 previewers.git_commit_diff_as_was = defaulter(function(opts)
   return previewers.new_buffer_previewer {
-    title = "Git Show Preview",
+    title = Msgstr("Git Show Preview"),
     teardown = search_teardown,
 
     get_buffer_by_name = function(_, entry)
@@ -948,7 +949,7 @@ previewers.git_commit_message = defaulter(function(opts)
     "TelescopePreviewDate",
   }
   return previewers.new_buffer_previewer {
-    title = "Git Message",
+    title = Msgstr("Git Message"),
     get_buffer_by_name = function(_, entry)
       return entry.value
     end,
@@ -978,7 +979,7 @@ end, {})
 
 previewers.git_file_diff = defaulter(function(opts)
   return previewers.new_buffer_previewer {
-    title = "Git File Diff Preview",
+    title = Msgstr("Git File Diff Preview"),
     get_buffer_by_name = function(_, entry)
       return entry.value
     end,
@@ -1014,7 +1015,7 @@ end, {})
 
 previewers.autocommands = defaulter(function(_)
   return previewers.new_buffer_previewer {
-    title = "Autocommands Preview",
+    title = Msgstr("Autocommands Preview"),
     teardown = function(self)
       if self.state and self.state.last_set_bufnr and vim.api.nvim_buf_is_valid(self.state.last_set_bufnr) then
         pcall(vim.api.nvim_buf_clear_namespace, self.state.last_set_bufnr, ns_previewer, 0, -1)
@@ -1039,7 +1040,7 @@ previewers.autocommands = defaulter(function(_)
       local selected_row = 0
       if self.state.bufname ~= entry.value.group_name then
         local display = {}
-        table.insert(display, string.format(" augroup: %s - [ %d entries ]", entry.value.group_name, #results))
+        table.insert(display, Msgstr(" augroup: %s - [ %d entries ]", {entry.value.group_name, #results}))
         -- TODO: calculate banner width/string in setup()
         -- TODO: get column characters to be the same HL group as border
         table.insert(display, string.rep("─", vim.fn.getwininfo(preview_winid)[1].width))
@@ -1050,7 +1051,7 @@ previewers.autocommands = defaulter(function(_)
           end
           table.insert(
             display,
-            string.format("  %-14s▏%-08s %s", item.value.event, item.value.pattern, item.value.command)
+            Msgstr("  %-14s▏%-08s %s", {item.value.event, item.value.pattern, item.value.command})
           )
         end
 
@@ -1080,7 +1081,7 @@ end, {})
 
 previewers.highlights = defaulter(function(_)
   return previewers.new_buffer_previewer {
-    title = "Highlights Preview",
+    title = Msgstr("Highlights Preview"),
     teardown = function(self)
       if self.state and self.state.last_set_bufnr and vim.api.nvim_buf_is_valid(self.state.last_set_bufnr) then
         vim.api.nvim_buf_clear_namespace(self.state.last_set_bufnr, ns_previewer, 0, -1)
@@ -1151,7 +1152,7 @@ previewers.pickers = defaulter(function(_)
 
     dyn_title = function(_, entry)
       if entry.value.default_text and entry.value.default_text ~= "" then
-        return string.format("%s ─ %s", entry.value.prompt_title, entry.value.default_text)
+        return Msgstr("%s ─ %s", {entry.value.prompt_title, entry.value.default_text})
       end
       return entry.value.prompt_title
     end,

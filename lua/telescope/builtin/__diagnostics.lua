@@ -4,6 +4,8 @@ local make_entry = require "telescope.make_entry"
 local pickers = require "telescope.pickers"
 local utils = require "telescope.utils"
 
+local Msgstr = require('telescope.langMSG').Msgstr
+
 local diagnostics = {}
 
 local sorting_comparator = function(opts)
@@ -73,7 +75,7 @@ local diagnostics_to_tbl = function(opts)
   if opts.severity ~= nil then
     if opts.severity_limit ~= nil or opts.severity_bound ~= nil then
       utils.notify("builtin.diagnostics", {
-        msg = "Invalid severity parameters. Both a specific severity and a limit/bound is not allowed",
+        msg = Msgstr("Invalid severity parameters. Both a specific severity and a limit/bound is not allowed"),
         level = "ERROR",
       })
       return {}
@@ -143,7 +145,7 @@ diagnostics.get = function(opts)
 
   if vim.tbl_isempty(locations) then
     utils.notify("builtin.diagnostics", {
-      msg = "No diagnostics found",
+      msg = Msgstr("No diagnostics found"),
       level = "INFO",
     })
     return
@@ -151,7 +153,7 @@ diagnostics.get = function(opts)
 
   if type(opts.line_width) == "string" and opts.line_width ~= "full" then
     utils.notify("builtin.diagnostics", {
-      msg = string.format("'%s' is not a valid value for line_width", opts.line_width),
+      msg = Msgstr("'%s' is not a valid value for line_width", {opts.line_width}),
       level = "ERROR",
     })
     return
@@ -159,7 +161,7 @@ diagnostics.get = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = opts.bufnr == nil and "Workspace Diagnostics" or "Document Diagnostics",
+      prompt_title = opts.bufnr == nil and Msgstr("Workspace Diagnostics") or Msgstr("Document Diagnostics"),
       finder = finders.new_table {
         results = locations,
         entry_maker = opts.entry_maker or make_entry.gen_from_diagnostics(opts),

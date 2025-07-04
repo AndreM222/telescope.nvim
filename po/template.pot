@@ -1,0 +1,911 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-04 17:29-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/telescope.lua:4
+msgid ""
+"Telescope.nvim requires at least nvim-0.9.0. See `:h "
+"telescope.changelog-2499`"
+msgstr ""
+
+#: lua/telescope/init.lua:166
+#, lua-format
+msgid "%s*telescope.defaults.%s*"
+msgstr ""
+
+#: lua/telescope/init.lua:167
+#, lua-format
+msgid "%s: ~"
+msgstr ""
+
+#: lua/telescope/init.lua:169
+#, lua-format
+msgid "    %s"
+msgstr ""
+
+#: lua/telescope/health.lua:125
+#, lua-format
+msgid "Telescope Extension: `%s`"
+msgstr ""
+
+#: lua/telescope/previewers/term_previewer.lua:46
+#, lua-format
+msgid "less -RS +%s"
+msgstr ""
+
+#: lua/telescope/previewers/term_previewer.lua:52
+#, lua-format
+msgid "%s:%s"
+msgstr ""
+
+#: lua/telescope/previewers/term_previewer.lua:254
+#: lua/telescope/previewers/buffer_previewer.lua:493
+msgid "File Preview"
+msgstr ""
+
+#: lua/telescope/previewers/term_previewer.lua:277
+#: lua/telescope/previewers/term_previewer.lua:312
+#: lua/telescope/previewers/buffer_previewer.lua:558
+#: lua/telescope/previewers/buffer_previewer.lua:669
+msgid "Grep Preview"
+msgstr ""
+
+#: lua/telescope/previewers/previewer.lua:88
+msgid "send_input is not defined for this previewer"
+msgstr ""
+
+#: lua/telescope/previewers/previewer.lua:96
+msgid "scroll_fn is not defined for this previewer"
+msgstr ""
+
+#: lua/telescope/previewers/previewer.lua:104
+msgid "scroll_horizontal_fn is not defined for this previewer"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:172
+#, lua-format
+msgid "file --mime-type -b \"%s\""
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:192
+msgid "File exceeds preview size limit"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:225
+msgid "Binary cannot be previewed"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:240
+msgid "Previewer timed out"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:637
+msgid "Tags Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:700
+msgid "Help Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:731
+msgid "Man Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:798
+msgid "Git Branch Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:832
+msgid "Git Stash Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:855
+msgid "Git Diff to Parent Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:885
+msgid "Git Diff to Head Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:916
+msgid "Git Show Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:952
+msgid "Git Message"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:982
+msgid "Git File Diff Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:1018
+msgid "Autocommands Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:1043
+#, lua-format
+msgid " augroup: %s - [ %d entries ]"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:1054
+msgid "  %-14s▏%-08s %s"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:1084
+msgid "Highlights Preview"
+msgstr ""
+
+#: lua/telescope/previewers/buffer_previewer.lua:1155
+#, lua-format
+msgid "%s ─ %s"
+msgstr ""
+
+#: lua/telescope/config/resolve.lua:99
+#, lua-format
+msgid "Invalid configuration option for '%s': '%s'"
+msgstr ""
+
+#: lua/telescope/_.lua:266
+#, lua-format
+msgid "Err: %s, Data: '%s'"
+msgstr ""
+
+#: lua/telescope/config.lua:425
+#, lua-format
+msgid "%s %s / %s"
+msgstr ""
+
+#: lua/telescope/config.lua:427
+#, lua-format
+msgid "%s %s / %s / %s"
+msgstr ""
+
+#: lua/telescope/config.lua:478
+msgid "Results"
+msgstr ""
+
+#: lua/telescope/_extensions/init.lua:12
+#, lua-format
+msgid "'%s' extension doesn't exist or isn't installed: %s"
+msgstr ""
+
+#: lua/telescope/pickers.lua:608
+#, lua-format
+msgid "`initial_mode` should be one of ['normal', 'insert'] but passed %s"
+msgstr ""
+
+#: lua/telescope/pickers.lua:1077
+#, lua-format
+msgid "Should not be possible to get row this large %s %s"
+msgstr ""
+
+#: lua/telescope/pickers.lua:1183
+#, lua-format
+msgid "no line found at row %d in buffer %d"
+msgstr ""
+
+#: lua/telescope/pickers.lua:1192
+#, lua-format
+msgid "can't identify old caret in line: %s"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:553 lua/telescope/actions/init.lua:687
+msgid "Missing the new branch name"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:557
+#, lua-format
+msgid "Create new branch '%s'? [y/n]: "
+msgstr ""
+
+#: lua/telescope/actions/init.lua:560
+#, lua-format
+msgid "branch creation canceled: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:571
+#, lua-format
+msgid "Switched to a new branch: %s"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:577
+#, lua-format
+msgid "Error when creating new branch: '%s' Git returned '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:599
+#, lua-format
+msgid "applied: '%s' "
+msgstr ""
+
+#: lua/telescope/actions/init.lua:604
+#, lua-format
+msgid "Error when applying: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:623
+#, lua-format
+msgid "Checked out: %s"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:630
+#, lua-format
+msgid "Error when checking out: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:659
+#, lua-format
+msgid "Switched to: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:665
+#, lua-format
+msgid "Error when switching to: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:695
+#, lua-format
+msgid "Renamed branch: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:701
+#, lua-format
+msgid "Error when renaming branch: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:725 lua/telescope/actions/init.lua:766
+#: lua/telescope/actions/init.lua:831
+msgid "action canceled"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:753
+#, lua-format
+msgid "Tracking branch: %s"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:754
+#, lua-format
+msgid "Error when tracking branch: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:763
+msgid "Do you really want to delete the selected branches? [Y/n] "
+msgstr ""
+
+#: lua/telescope/actions/init.lua:780
+#, lua-format
+msgid "Deleted branch: %s"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:785
+#, lua-format
+msgid "Error when deleting branch: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:798
+#, lua-format
+msgid "Do you really wanna merge branch %s? [Y/n] "
+msgstr ""
+
+#: lua/telescope/actions/init.lua:799
+#, lua-format
+msgid "Merged branch: %s"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:800
+#, lua-format
+msgid "Error when merging branch: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:811
+#, lua-format
+msgid "Do you really wanna rebase branch %s? [Y/n] "
+msgstr ""
+
+#: lua/telescope/actions/init.lua:812
+#, lua-format
+msgid "Rebased branch: %s"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:813
+#, lua-format
+msgid "Error when rebasing branch: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:828
+#, lua-format
+msgid "Do you really wanna %s reset to %s? [Y/n] "
+msgstr ""
+
+#: lua/telescope/actions/init.lua:841
+#, lua-format
+msgid "Reset to: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:846
+#, lua-format
+msgid "Rest to: %s. Git returned: '%s'"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1087
+msgid "No tag pre-filtering set for this picker"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1097
+#, lua-format
+msgid "%s%s%s "
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1118
+msgid "No matches found"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1335
+msgid "No name available for anonymous functions."
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1483 lua/telescope/builtin/__files.lua:177
+msgid "Live Grep"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1484
+msgid "Find Word"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1485 lua/telescope/builtin/__lsp.lua:488
+msgid "LSP Dynamic Workspace Symbols"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1486 lua/telescope/builtin/__lsp.lua:439
+msgid "LSP Workspace Symbols"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1492
+msgid "Fuzzy over"
+msgstr ""
+
+#: lua/telescope/actions/init.lua:1499
+#, lua-format
+msgid "%s (%s)"
+msgstr ""
+
+#: lua/telescope/actions/set.lua:98
+#, lua-format
+msgid ""
+"There was no associated buffer command for %q.\n"
+"Valid commands are: %s."
+msgstr ""
+
+#: lua/telescope/actions/set.lua:105
+#, lua-format
+msgid "%s %d"
+msgstr ""
+
+#: lua/telescope/actions/set.lua:107 lua/telescope/actions/set.lua:203
+#: lua/telescope/make_entry.lua:828 lua/telescope/make_entry.lua:926
+#: lua/telescope/builtin/__git.lua:151 lua/telescope/builtin/__lsp.lua:262
+#, lua-format
+msgid "%s %s"
+msgstr ""
+
+#: lua/telescope/actions/set.lua:135 lua/telescope/utils.lua:703
+msgid "Nothing currently selected"
+msgstr ""
+
+#: lua/telescope/actions/set.lua:155
+msgid "Could not do anything with blank line..."
+msgstr ""
+
+#: lua/telescope/actions/history.lua:121 lua/telescope/actions/history.lua:150
+msgid ""
+"You are cycling to next the history item but history is disabled. Read "
+"':help telescope.defaults.history'"
+msgstr ""
+
+#: lua/telescope/command.lua:126
+#, lua-format
+msgid "Type of '%s' does not match"
+msgstr ""
+
+#: lua/telescope/command.lua:163
+msgid "Command missing arguments"
+msgstr ""
+
+#: lua/telescope/command.lua:205
+msgid "Unknown command"
+msgstr ""
+
+#: lua/telescope/pickers/window.lua:11
+#, lua-format
+msgid "'%s' is not a valid layout strategy"
+msgstr ""
+
+#: lua/telescope/pickers/layout_strategies.lua:169
+#, lua-format
+msgid ""
+"Unsupported layout_config key for the %s strategy: %s\n"
+"%s"
+msgstr ""
+
+#: lua/telescope/pickers/layout_strategies.lua:220
+#, lua-format
+msgid "  - %s: %s"
+msgstr ""
+
+#: lua/telescope/pickers/layout_strategies.lua:222
+#, lua-format
+msgid "  - %s:"
+msgstr ""
+
+#: lua/telescope/pickers/layout_strategies.lua:224
+#, lua-format
+msgid "    - %s"
+msgstr ""
+
+#: lua/telescope/pickers/layout_strategies.lua:227
+#, lua-format
+msgid "expected string or table but found '%s'"
+msgstr ""
+
+#: lua/telescope/pickers/layout_strategies.lua:380
+#: lua/telescope/pickers/layout_strategies.lua:490
+#: lua/telescope/pickers/layout_strategies.lua:737
+#: lua/telescope/pickers/layout_strategies.lua:749
+#: lua/telescope/pickers/layout_strategies.lua:933
+#, lua-format
+msgid ""
+"Unknown prompt_position: %s\n"
+"%s"
+msgstr ""
+
+#: lua/telescope/pickers/scroller.lua:62
+#, lua-format
+msgid "Must never return a negative row: { result = %s, args = { %s %s %s } }"
+msgstr ""
+
+#: lua/telescope/pickers/scroller.lua:74
+#, lua-format
+msgid "Must never exceed max results: { result = %s, args = { %s %s %s } }"
+msgstr ""
+
+#: lua/telescope/utils.lua:122
+msgid ""
+"Either opts.symbols or opts.ignore_symbols, can't process opposing options "
+"at the same time!"
+msgstr ""
+
+#: lua/telescope/utils.lua:134
+msgid "Please pass ignore_symbols as either a string or a list of strings"
+msgstr ""
+
+#: lua/telescope/utils.lua:150
+msgid "Please pass filtering symbols as either a string or a list of strings"
+msgstr ""
+
+#: lua/telescope/utils.lua:174
+#, lua-format
+msgid "%s symbol(s) were not part of the query results"
+msgstr ""
+
+#: lua/telescope/utils.lua:180
+#, lua-format
+msgid "%s ignore_symbol(s) have removed everything from the query result"
+msgstr ""
+
+#: lua/telescope/utils.lua:560
+msgid "cmd has to be a table"
+msgstr ""
+
+#: lua/telescope/utils.lua:696
+#, lua-format
+msgid "[telescope.%s]: %s"
+msgstr ""
+
+#: lua/telescope/make_entry.lua:325
+#, lua-format
+msgid ":%s:%s:"
+msgstr ""
+
+#: lua/telescope/make_entry.lua:327
+#, lua-format
+msgid ":%s:"
+msgstr ""
+
+#: lua/telescope/make_entry.lua:442
+msgid "<empty commit message>"
+msgstr ""
+
+#: lua/telescope/make_entry.lua:463
+#, lua-format
+msgid "%s:%d:%d"
+msgstr ""
+
+#: lua/telescope/make_entry.lua:465 lua/telescope/make_entry.lua:1191
+#, lua-format
+msgid "%4d:%2d"
+msgstr ""
+
+#: lua/telescope/make_entry.lua:1011
+#, lua-format
+msgid "%s %s %s %s"
+msgstr ""
+
+#: lua/telescope/from_entry.lua:25
+#, lua-format
+msgid "Invalid Entry: '%s'"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:55
+msgid "Telescope Builtin"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:58
+msgid "Telescope Pickers"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:66
+#, lua-format
+msgid "%s : %s"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:139
+#: lua/telescope/builtin/__internal.lua:182
+msgid "No cached picker(s)."
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:147
+#, lua-format
+msgid "Index too large as there are only '%s' pickers cached"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:198
+msgid "Pickers"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:252
+msgid "Planets"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:301
+msgid ""
+"No sources found! Check out https://github.com/nvim-telescope/telescope-"
+"symbols.nvim for some prebuild symbols or how to create you own symbol "
+"source."
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:330
+msgid "Symbols"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:357
+msgid "Commands"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:392
+#, lua-format
+msgid ":%s "
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:413
+msgid "No quickfix items"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:419
+msgid "Quickfix"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:453
+msgid "Quickfix History"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:459
+msgid "Quickfix List Preview"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:510
+msgid "No loclist items"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:516
+msgid "Loclist"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:574
+msgid "Oldfiles"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:609
+msgid "Command History"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:639
+msgid "Search History"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:671
+msgid "options"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:691
+#, lua-format
+msgid "%s:set %s!"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:692
+#, lua-format
+msgid "%s:set %s=%s"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:781
+msgid "Help"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:840
+msgid "Man"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:889
+msgid "Packages"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:908
+#, lua-format
+msgid "[%s] - module reloaded"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:946
+msgid "No buffers found with the provided options"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:993
+msgid "Buffers"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1075
+msgid "Change Colorscheme"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1173
+#, lua-format
+msgid "%s %6d %4d %s"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1192
+msgid "Marks"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1220
+msgid "Registers"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1275
+msgid "Key Maps"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1303
+msgid "Filetypes"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1330
+msgid "Highlights"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1361
+msgid "autocommands"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1420
+msgid "Spelling Suggestions"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1464
+msgid "No tagstack available"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1472
+msgid "TagStack"
+msgstr ""
+
+#: lua/telescope/builtin/__internal.lua:1499
+msgid "Jumplist"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:51
+#, lua-format
+msgid ""
+"'ripgrep', or similar alternative, is a required dependency for the %s "
+"picker. Visit https://github.com/BurntSushi/ripgrep#installation for "
+"installation instructions."
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:258
+#, lua-format
+msgid "Find Word (%s)"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:289
+msgid "You need to install either find, fd, or rg"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:389
+msgid "Find Files"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:419
+msgid "This picker requires nvim-treesitter"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:428
+msgid "No parser for the current buffer"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:456
+msgid "Treesitter Symbols"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:536
+msgid "Current Buffer Fuzzy"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:589
+msgid "No tags file found. Create one with ctags -R"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:598
+msgid "Tags"
+msgstr ""
+
+#: lua/telescope/builtin/__files.lua:634
+msgid "Current Buffer Tags"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:26 lua/telescope/builtin/__git.lua:367
+msgid "This operation must be run in a work tree"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:36
+msgid "Git does not support both --others and --recurse-submodules"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:52
+msgid "Git Files"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:75
+msgid "Git Commits"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:102
+msgid "Git Stash"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:195
+msgid "Git BCommits"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:234
+#, lua-format
+msgid "%d,%d:%s"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:236
+msgid "Git BCommits in range"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:338
+msgid "Git Branches"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:391
+msgid "Git Status"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:410
+msgid "No changes found"
+msgstr ""
+
+#: lua/telescope/builtin/__diagnostics.lua:78
+msgid ""
+"Invalid severity parameters. Both a specific severity and a limit/bound is "
+"not allowed"
+msgstr ""
+
+#: lua/telescope/builtin/__diagnostics.lua:148
+msgid "No diagnostics found"
+msgstr ""
+
+#: lua/telescope/builtin/__diagnostics.lua:156
+#, lua-format
+msgid "'%s' is not a valid value for line_width"
+msgstr ""
+
+#: lua/telescope/builtin/__diagnostics.lua:164
+msgid "Workspace Diagnostics"
+msgstr ""
+
+#: lua/telescope/builtin/__diagnostics.lua:164
+msgid "Document Diagnostics"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:16
+#, lua-format
+msgid "Error handling %s: %s"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:63
+#, lua-format
+msgid "%d. %s"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:97
+#, lua-format
+msgid "Error when preparing call hierarchy: %s"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:233
+#, lua-format
+msgid "Error when executing %s : %s"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:241
+#, lua-format
+msgid "No %s found"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:351
+#, lua-format
+msgid "Error when finding document symbols: %s"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:357
+msgid "No results from textDocument/documentSymbol"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:379
+msgid "No document_symbol locations found"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:388
+msgid "LSP Document Symbols"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:409
+#, lua-format
+msgid "Error when finding workspace symbols: %s"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:429
+msgid ""
+"No results from workspace/symbol. Maybe try a different query: 'Telescope "
+"lsp_workspace_symbols query=example'"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:467
+#, lua-format
+msgid "Error when executing workspace/symbol : %s"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:522
+msgid "no client attached"
+msgstr ""
+
+#: lua/telescope/builtin/__lsp.lua:527
+#, lua-format
+msgid "server does not support %s"
+msgstr ""

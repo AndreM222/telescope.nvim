@@ -3,6 +3,7 @@ local deprecated = require "telescope.deprecated"
 local sorters = require "telescope.sorters"
 local os_sep = require("plenary.path").path.sep
 local has_win = vim.fn.has "win32" == 1
+local Msgstr = require('telescope.langMSG').Msgstr
 
 -- Keep the values around between reloads
 _TelescopeConfigurationValues = _TelescopeConfigurationValues or {}
@@ -421,9 +422,9 @@ append(
     if showing_cnt == 0 and total_cnt == 0 then
       status_text = status_icon
     elseif multi_select_cnt == 0 then
-      status_text = string.format("%s %s / %s", status_icon, showing_cnt, total_cnt)
+      status_text = Msgstr("%s %s / %s", {status_icon, showing_cnt, total_cnt})
     else
-      status_text = string.format("%s %s / %s / %s", status_icon, multi_select_cnt, showing_cnt, total_cnt)
+      status_text = Msgstr("%s %s / %s / %s", {status_icon, multi_select_cnt, showing_cnt, total_cnt})
     end
 
     -- quick workaround for extmark right_align side-scrolling limitation
@@ -474,7 +475,7 @@ append(
 
 append(
   "results_title",
-  "Results",
+  Msgstr("Results"),
   [[
   Defines the default title of the results window. A false value
   can be used to hide the title altogether.

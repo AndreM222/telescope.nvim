@@ -5,6 +5,7 @@ local warn = health.warn or health.report_warn
 local error = health.error or health.report_error
 local info = health.info or health.report_info
 
+local Msgstr = require('telescope.langMSG').Msgstr
 local extension_module = require "telescope._extensions"
 local extension_info = require("telescope").extensions
 local is_win = vim.api.nvim_call_function("has", { "win32" }) == 1
@@ -121,7 +122,7 @@ M.check = function()
   for _, installed_ext in ipairs(installed) do
     local extension_healthcheck = extension_module._health[installed_ext]
 
-    start(string.format("Telescope Extension: `%s`", installed_ext))
+    start(Msgstr("Telescope Extension: `%s`", { installed_ext }))
     if extension_healthcheck then
       extension_healthcheck()
     else

@@ -3,6 +3,8 @@ local uv = vim.loop
 local Object = require "plenary.class"
 local log = require "plenary.log"
 
+local Msgstr = require('telescope.langMSG').Msgstr
+
 local async = require "plenary.async"
 local channel = require("plenary.async").control.channel
 local utils = require "telescope.utils"
@@ -261,7 +263,7 @@ function ErrorPipe:start()
     self.handle:read_stop()
     self.handle:close()
 
-    error(string.format("Err: %s, Data: '%s'", err, data))
+    error(Msgstr("Err: %s, Data: '%s'", {err, data}))
   end)
 end
 

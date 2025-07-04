@@ -66,6 +66,8 @@ local action_set = require "telescope.actions.set"
 local entry_display = require "telescope.pickers.entry_display"
 local from_entry = require "telescope.from_entry"
 
+local Msgstr = require('telescope.langMSG').Msgstr
+
 local transform_mod = require("telescope.actions.mt").transform_mod
 local resolver = require "telescope.config.resolve"
 
@@ -548,14 +550,14 @@ actions.git_create_branch = function(prompt_bufnr)
 
   if new_branch == "" then
     utils.notify("actions.git_create_branch", {
-      msg = "Missing the new branch name",
+      msg = Msgstr("Missing the new branch name"),
       level = "ERROR",
     })
   else
-    local confirmation = ask_to_confirm(string.format("Create new branch '%s'? [y/n]: ", new_branch))
+    local confirmation = ask_to_confirm(Msgstr("Create new branch '%s'? [y/n]: ", {new_branch}))
     if not confirmation then
       utils.notify("actions.git_create_branch", {
-        msg = string.format("branch creation canceled: '%s'", new_branch),
+        msg = Msgstr("branch creation canceled: '%s'", {new_branch}),
         level = "INFO",
       })
       return
@@ -566,16 +568,16 @@ actions.git_create_branch = function(prompt_bufnr)
     local _, ret, stderr = utils.get_os_command_output({ "git", "checkout", "-b", new_branch }, cwd)
     if ret == 0 then
       utils.notify("actions.git_create_branch", {
-        msg = string.format("Switched to a new branch: %s", new_branch),
+        msg = Msgstr("Switched to a new branch: %s", {new_branch}),
         level = "INFO",
       })
     else
       utils.notify("actions.git_create_branch", {
-        msg = string.format(
-          "Error when creating new branch: '%s' Git returned '%s'",
+        msg = Msgstr(
+          "Error when creating new branch: '%s' Git returned '%s'", {
           new_branch,
           table.concat(stderr, " ")
-        ),
+        }),
         level = "INFO",
       })
     end
@@ -594,12 +596,12 @@ actions.git_apply_stash = function(prompt_bufnr)
   local _, ret, stderr = utils.get_os_command_output { "git", "stash", "apply", "--index", selection.value }
   if ret == 0 then
     utils.notify("actions.git_apply_stash", {
-      msg = string.format("applied: '%s' ", selection.value),
+      msg = Msgstr("applied: '%s' ", {selection.value}),
       level = "INFO",
     })
   else
     utils.notify("actions.git_apply_stash", {
-      msg = string.format("Error when applying: %s. Git returned: '%s'", selection.value, table.concat(stderr, " ")),
+      msg = Msgstr("Error when applying: %s. Git returned: '%s'", {selection.value, table.concat(stderr, " ")}),
       level = "ERROR",
     })
   end
@@ -618,17 +620,17 @@ actions.git_checkout = function(prompt_bufnr)
   local _, ret, stderr = utils.get_os_command_output({ "git", "checkout", selection.value }, cwd)
   if ret == 0 then
     utils.notify("actions.git_checkout", {
-      msg = string.format("Checked out: %s", selection.value),
+      msg = Msgstr("Checked out: %s", {selection.value}),
       level = "INFO",
     })
     vim.cmd "checktime"
   else
     utils.notify("actions.git_checkout", {
-      msg = string.format(
-        "Error when checking out: %s. Git returned: '%s'",
+      msg = Msgstr(
+        "Error when checking out: %s. Git returned: '%s'", {
         selection.value,
         table.concat(stderr, " ")
-      ),
+        }),
       level = "ERROR",
     })
   end
@@ -654,16 +656,16 @@ actions.git_switch_branch = function(prompt_bufnr)
   local _, ret, stderr = utils.get_os_command_output({ "git", "switch", branch }, cwd)
   if ret == 0 then
     utils.notify("actions.git_switch_branch", {
-      msg = string.format("Switched to: '%s'", branch),
+      msg = Msgstr("Switched to: '%s'", {branch}),
       level = "INFO",
     })
   else
     utils.notify("actions.git_switch_branch", {
-      msg = string.format(
-        "Error when switching to: %s. Git returned: '%s'",
+      msg = Msgstr(
+        "Error when switching to: %s. Git returned: '%s'", {
         selection.value,
         table.concat(stderr, " ")
-      ),
+      }),
       level = "ERROR",
     })
   end
@@ -682,7 +684,7 @@ actions.git_rename_branch = function(prompt_bufnr)
   local new_branch = vim.fn.input("New branch name: ", selection.value)
   if new_branch == "" then
     utils.notify("actions.git_rename_branch", {
-      msg = "Missing the new branch name",
+      msg = Msgstr("Missing the new branch name"),
       level = "ERROR",
     })
   else
@@ -690,16 +692,16 @@ actions.git_rename_branch = function(prompt_bufnr)
     local _, ret, stderr = utils.get_os_command_output({ "git", "branch", "-m", selection.value, new_branch }, cwd)
     if ret == 0 then
       utils.notify("actions.git_rename_branch", {
-        msg = string.format("Renamed branch: '%s'", selection.value),
+        msg = Msgstr("Renamed branch: '%s'", {selection.value}),
         level = "INFO",
       })
     else
       utils.notify("actions.git_rename_branch", {
-        msg = string.format(
-          "Error when renaming branch: %s. Git returned: '%s'",
+        msg = Msgstr(
+          "Error when renaming branch: %s. Git returned: '%s'", {
           selection.value,
           table.concat(stderr, " ")
-        ),
+        }),
         level = "ERROR",
       })
     end
@@ -720,7 +722,7 @@ local function make_git_branch_action(opts)
       local confirmation = ask_to_confirm(string.format(opts.confirmation_question, selection.value), "y")
       if not confirmation then
         utils.notify(opts.action_name, {
-          msg = "action canceled",
+          msg = Msgstr("action canceled"),
           level = "INFO",
         })
         return
@@ -748,8 +750,8 @@ end
 actions.git_track_branch = make_git_branch_action {
   should_confirm = false,
   action_name = "actions.git_track_branch",
-  success_message = "Tracking branch: %s",
-  error_message = "Error when tracking branch: %s. Git returned: '%s'",
+  success_message = Msgstr("Tracking branch: %s"),
+  error_message = Msgstr("Error when tracking branch: %s. Git returned: '%s'"),
   command = function(branch_name)
     return { "git", "checkout", "--track", branch_name }
   end,
@@ -758,10 +760,10 @@ actions.git_track_branch = make_git_branch_action {
 --- Delete all currently selected branches
 ---@param prompt_bufnr number: The prompt bufnr
 actions.git_delete_branch = function(prompt_bufnr)
-  local confirmation = ask_to_confirm("Do you really want to delete the selected branches? [Y/n] ", "y")
+  local confirmation = ask_to_confirm(Msgstr("Do you really want to delete the selected branches? [Y/n] "), "y")
   if not confirmation then
     utils.notify("actions.git_delete_branch", {
-      msg = "action canceled",
+      msg = Msgstr("action canceled"),
       level = "INFO",
     })
     return
@@ -775,12 +777,12 @@ actions.git_delete_branch = function(prompt_bufnr)
     local _, ret, stderr = utils.get_os_command_output({ "git", "branch", "-D", branch }, picker.cwd)
     if ret == 0 then
       utils.notify(action_name, {
-        msg = string.format("Deleted branch: %s", branch),
+        msg = Msgstr("Deleted branch: %s", {branch}),
         level = "INFO",
       })
     else
       utils.notify(action_name, {
-        msg = string.format("Error when deleting branch: %s. Git returned: '%s'", branch, table.concat(stderr, " ")),
+        msg = Msgstr("Error when deleting branch: %s. Git returned: '%s'", {branch, table.concat(stderr, " ")}),
         level = "ERROR",
       })
     end
@@ -793,9 +795,9 @@ end
 actions.git_merge_branch = make_git_branch_action {
   should_confirm = true,
   action_name = "actions.git_merge_branch",
-  confirmation_question = "Do you really wanna merge branch %s? [Y/n] ",
-  success_message = "Merged branch: %s",
-  error_message = "Error when merging branch: %s. Git returned: '%s'",
+  confirmation_question = Msgstr("Do you really wanna merge branch %s? [Y/n] "),
+  success_message = Msgstr("Merged branch: %s"),
+  error_message = Msgstr("Error when merging branch: %s. Git returned: '%s'"),
   command = function(branch_name)
     return { "git", "merge", branch_name }
   end,
@@ -806,9 +808,9 @@ actions.git_merge_branch = make_git_branch_action {
 actions.git_rebase_branch = make_git_branch_action {
   should_confirm = true,
   action_name = "actions.git_rebase_branch",
-  confirmation_question = "Do you really wanna rebase branch %s? [Y/n] ",
-  success_message = "Rebased branch: %s",
-  error_message = "Error when rebasing branch: %s. Git returned: '%s'",
+  confirmation_question = Msgstr("Do you really wanna rebase branch %s? [Y/n] "),
+  success_message = Msgstr("Rebased branch: %s"),
+  error_message = Msgstr("Error when rebasing branch: %s. Git returned: '%s'"),
   command = function(branch_name)
     return { "git", "rebase", branch_name }
   end,
@@ -823,10 +825,10 @@ local git_reset_branch = function(prompt_bufnr, mode)
   end
 
   local confirmation =
-    ask_to_confirm("Do you really wanna " .. mode .. " reset to " .. selection.value .. "? [Y/n] ", "y")
+    ask_to_confirm(Msgstr("Do you really wanna %s reset to %s? [Y/n] ", {mode, selection.value}), "y")
   if not confirmation then
     utils.notify("actions.git_reset_branch", {
-      msg = "action canceled",
+      msg = Msgstr("action canceled"),
       level = "INFO",
     })
     return
@@ -836,12 +838,12 @@ local git_reset_branch = function(prompt_bufnr, mode)
   local _, ret, stderr = utils.get_os_command_output({ "git", "reset", mode, selection.value }, cwd)
   if ret == 0 then
     utils.notify("actions.git_rebase_branch", {
-      msg = string.format("Reset to: '%s'", selection.value),
+      msg = Msgstr("Reset to: '%s'", {selection.value}),
       level = "INFO",
     })
   else
     utils.notify("actions.git_rebase_branch", {
-      msg = string.format("Rest to: %s. Git returned: '%s'", selection.value, table.concat(stderr, " ")),
+      msg = Msgstr("Rest to: %s. Git returned: '%s'", {selection.value, table.concat(stderr, " ")}),
       level = "ERROR",
     })
   end
@@ -1082,7 +1084,7 @@ actions.complete_tag = function(prompt_bufnr)
 
   if not tags then
     utils.notify("actions.complete_tag", {
-      msg = "No tag pre-filtering set for this picker",
+      msg = Msgstr("No tag pre-filtering set for this picker"),
       level = "ERROR",
     })
 
@@ -1092,7 +1094,7 @@ actions.complete_tag = function(prompt_bufnr)
   -- format tags to match filter_function
   local prefilter_tags = {}
   for tag, _ in pairs(tags) do
-    table.insert(prefilter_tags, string.format("%s%s%s ", delimiter, tag:lower(), delimiter))
+    table.insert(prefilter_tags, Msgstr("%s%s%s ", { delimiter, tag:lower(), delimiter }))
   end
 
   local line = action_state.get_current_line()
@@ -1113,7 +1115,7 @@ actions.complete_tag = function(prompt_bufnr)
 
   if vim.tbl_isempty(filtered_tags) then
     utils.notify("complete_tag", {
-      msg = "No matches found",
+      msg = Msgstr("No matches found"),
       level = "INFO",
     })
     return
@@ -1330,7 +1332,7 @@ actions.which_key = function(prompt_bufnr, opts)
         table.insert(mappings, { mode = v.mode, keybind = v.keybind, name = v.desc })
         if v.desc == "<anonymous>" then
           utils.notify("actions.which_key", {
-            msg = "No name available for anonymous functions.",
+            msg = Msgstr("No name available for anonymous functions."),
             level = "INFO",
             once = true,
           })
@@ -1478,23 +1480,23 @@ actions.to_fuzzy_refine = function(prompt_bufnr)
     }
 
     local title = action_state.get_current_picker(prompt_bufnr).prompt_title
-    if title == "Live Grep" then
-      opts.prefix = "Find Word"
-    elseif title == "LSP Dynamic Workspace Symbols" then
-      opts.prefix = "LSP Workspace Symbols"
+    if title == Msgstr("Live Grep") then
+      opts.prefix = Msgstr("Find Word")
+    elseif title == Msgstr("LSP Dynamic Workspace Symbols") then
+      opts.prefix = Msgstr("LSP Workspace Symbols")
       opts.sorter = conf.prefilter_sorter {
         tag = "symbol_type",
         sorter = opts.sorter,
       }
     else
-      opts.prefix = "Fuzzy over"
+      opts.prefix = Msgstr("Fuzzy over")
     end
 
     return opts
   end)()
 
   require("telescope.actions.generate").refine(prompt_bufnr, {
-    prompt_title = string.format("%s (%s)", opts.prefix, line),
+    prompt_title = Msgstr("%s (%s)", {opts.prefix, line}),
     sorter = opts.sorter,
   })
 end

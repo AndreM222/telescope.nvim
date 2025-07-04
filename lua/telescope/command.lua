@@ -47,6 +47,7 @@ local builtin = require "telescope.builtin"
 local extensions = require("telescope._extensions").manager
 local config = require "telescope.config"
 local utils = require "telescope.utils"
+local Msgstr = require('telescope.langMSG').Msgstr
 local command = {}
 
 local arg_value = {
@@ -122,7 +123,7 @@ command.convert_user_opts = function(user_opts)
   local _switch_metatable = {
     __index = function(_, k)
       utils.notify("command", {
-        msg = string.format("Type of '%s' does not match", k),
+        msg = Msgstr("Type of '%s' does not match", {k}),
         level = "WARN",
       })
     end,
@@ -159,7 +160,7 @@ local function run_command(args)
   local user_opts = args or {}
   if next(user_opts) == nil and not user_opts.cmd then
     utils.notify("command", {
-      msg = "Command missing arguments",
+      msg = Msgstr("Command missing arguments"),
       level = "ERROR",
     })
     return
@@ -201,7 +202,7 @@ local function run_command(args)
   end
 
   utils.notify("run_command", {
-    msg = "Unknown command",
+    msg = Msgstr("Unknown command"),
     level = "ERROR",
   })
 end

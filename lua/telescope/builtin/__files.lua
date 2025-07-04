@@ -9,6 +9,7 @@ local sorters = require "telescope.sorters"
 local utils = require "telescope.utils"
 local conf = require("telescope.config").values
 local log = require "telescope.log"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local Path = require "plenary.path"
 
@@ -46,11 +47,10 @@ local has_rg_program = function(picker_name, program)
   end
 
   utils.notify(picker_name, {
-    msg = string.format(
-      "'ripgrep', or similar alternative, is a required dependency for the %s picker. "
-        .. "Visit https://github.com/BurntSushi/ripgrep#installation for installation instructions.",
+    msg = Msgstr(
+      "'ripgrep', or similar alternative, is a required dependency for the %s picker. Visit https://github.com/BurntSushi/ripgrep#installation for installation instructions.", {
       picker_name
-    ),
+    }),
     level = "ERROR",
   })
   return false
@@ -174,7 +174,7 @@ files.live_grep = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Live Grep",
+      prompt_title = Msgstr("Live Grep"),
       finder = live_grepper,
       previewer = conf.grep_previewer(opts),
       -- TODO: It would be cool to use `--json` output for this
@@ -255,7 +255,7 @@ files.grep_string = function(opts)
   opts.entry_maker = opts.entry_maker or make_entry.gen_from_vimgrep(opts)
   pickers
     .new(opts, {
-      prompt_title = "Find Word (" .. word:gsub("\n", "\\n") .. ")",
+      prompt_title = Msgstr("Find Word (%s)", {word:gsub("\n", "\\n")}),
       finder = finders.new_oneshot_job(args, opts),
       previewer = conf.grep_previewer(opts),
       sorter = conf.generic_sorter(opts),
@@ -286,7 +286,7 @@ files.find_files = function(opts)
 
   if not find_command then
     utils.notify("builtin.find_files", {
-      msg = "You need to install either find, fd, or rg",
+      msg = Msgstr("You need to install either find, fd, or rg"),
       level = "ERROR",
     })
     return
@@ -386,7 +386,7 @@ files.find_files = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Find Files",
+      prompt_title = Msgstr("Find Files"),
       __locations_input = true,
       finder = finders.new_oneshot_job(find_command, opts),
       previewer = conf.grep_previewer(opts),
@@ -416,7 +416,7 @@ files.treesitter = function(opts)
   local has_nvim_treesitter, _ = pcall(require, "nvim-treesitter")
   if not has_nvim_treesitter then
     utils.notify("builtin.treesitter", {
-      msg = "This picker requires nvim-treesitter",
+      msg = Msgstr("This picker requires nvim-treesitter"),
       level = "ERROR",
     })
     return
@@ -425,7 +425,7 @@ files.treesitter = function(opts)
   local parsers = require "nvim-treesitter.parsers"
   if not parsers.has_parser(parsers.get_buf_lang(opts.bufnr)) then
     utils.notify("builtin.treesitter", {
-      msg = "No parser for the current buffer",
+      msg = Msgstr("No parser for the current buffer"),
       level = "ERROR",
     })
     return
@@ -453,7 +453,7 @@ files.treesitter = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Treesitter Symbols",
+      prompt_title = Msgstr("Treesitter Symbols"),
       finder = finders.new_table {
         results = results,
         entry_maker = opts.entry_maker or make_entry.gen_from_treesitter(opts),
@@ -533,7 +533,7 @@ files.current_buffer_fuzzy_find = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Current Buffer Fuzzy",
+      prompt_title = Msgstr("Current Buffer Fuzzy"),
       finder = finders.new_table {
         results = lines_with_numbers,
         entry_maker = opts.entry_maker or make_entry.gen_from_buffer_lines(opts),
@@ -586,7 +586,7 @@ files.tags = function(opts)
   end
   if vim.tbl_isempty(tagfiles) then
     utils.notify("builtin.tags", {
-      msg = "No tags file found. Create one with ctags -R",
+      msg = Msgstr("No tags file found. Create one with ctags -R"),
       level = "ERROR",
     })
     return
@@ -595,7 +595,7 @@ files.tags = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Tags",
+      prompt_title = Msgstr("Tags"),
       finder = finders.new_oneshot_job(flatten { "cat", tagfiles }, opts),
       previewer = previewers.ctags.new(opts),
       sorter = conf.generic_sorter(opts),
@@ -631,7 +631,7 @@ end
 
 files.current_buffer_tags = function(opts)
   return files.tags(vim.tbl_extend("force", {
-    prompt_title = "Current Buffer Tags",
+    prompt_title = Msgstr("Current Buffer Tags"),
     only_current_file = true,
     path_display = "hidden",
   }, opts))

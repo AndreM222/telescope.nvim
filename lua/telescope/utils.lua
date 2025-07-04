@@ -7,6 +7,7 @@
 
 local Path = require "plenary.path"
 local Job = require "plenary.job"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local log = require "telescope.log"
 
@@ -118,7 +119,7 @@ utils.filter_symbols = function(results, opts, post_filter)
 
   if has_symbols and has_ignore then
     utils.notify("filter_symbols", {
-      msg = "Either opts.symbols or opts.ignore_symbols, can't process opposing options at the same time!",
+      msg = Msgstr("Either opts.symbols or opts.ignore_symbols, can't process opposing options at the same time!"),
       level = "ERROR",
     })
     return {}
@@ -130,7 +131,7 @@ utils.filter_symbols = function(results, opts, post_filter)
     end
     if type(opts.ignore_symbols) ~= "table" then
       utils.notify("filter_symbols", {
-        msg = "Please pass ignore_symbols as either a string or a list of strings",
+        msg = Msgstr("Please pass ignore_symbols as either a string or a list of strings"),
         level = "ERROR",
       })
       return {}
@@ -146,7 +147,7 @@ utils.filter_symbols = function(results, opts, post_filter)
     end
     if type(opts.symbols) ~= "table" then
       utils.notify("filter_symbols", {
-        msg = "Please pass filtering symbols as either a string or a list of strings",
+        msg = Msgstr("Please pass filtering symbols as either a string or a list of strings"),
         level = "ERROR",
       })
       return {}
@@ -170,13 +171,13 @@ utils.filter_symbols = function(results, opts, post_filter)
   if has_symbols then
     local symbols = table.concat(opts.symbols, ", ")
     utils.notify("filter_symbols", {
-      msg = string.format("%s symbol(s) were not part of the query results", symbols),
+      msg = Msgstr("%s symbol(s) were not part of the query results", {symbols}),
       level = "WARN",
     })
   elseif has_ignore then
     local symbols = table.concat(opts.ignore_symbols, ", ")
     utils.notify("filter_symbols", {
-      msg = string.format("%s ignore_symbol(s) have removed everything from the query result", symbols),
+      msg = Msgstr("%s ignore_symbol(s) have removed everything from the query result", {symbols}),
       level = "WARN",
     })
   end
@@ -556,7 +557,7 @@ end
 function utils.get_os_command_output(cmd, cwd)
   if type(cmd) ~= "table" then
     utils.notify("get_os_command_output", {
-      msg = "cmd has to be a table",
+      msg = Msgstr("cmd has to be a table"),
       level = "ERROR",
     })
     return {}
@@ -692,14 +693,14 @@ utils.notify = function(funname, opts)
     error("Invalid error level", 2)
   end
   local notify_fn = opts.once and vim.notify_once or vim.notify
-  notify_fn(string.format("[telescope.%s]: %s", funname, opts.msg), level, {
+  notify_fn(Msgstr("[telescope.%s]: %s", {funname, opts.msg}), level, {
     title = "telescope.nvim",
   })
 end
 
 utils.__warn_no_selection = function(name)
   utils.notify(name, {
-    msg = "Nothing currently selected",
+    msg = Msgstr("Nothing currently selected"),
     level = "WARN",
   })
 end

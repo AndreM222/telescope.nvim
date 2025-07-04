@@ -1,5 +1,7 @@
 local extensions = {}
 
+local Msgstr = require('telescope.langMSG').Msgstr
+
 extensions._loaded = {}
 extensions._config = {}
 extensions._health = {}
@@ -7,7 +9,7 @@ extensions._health = {}
 local load_extension = function(name)
   local ok, ext = pcall(require, "telescope._extensions." .. name)
   if not ok then
-    error(string.format("'%s' extension doesn't exist or isn't installed: %s", name, ext))
+    error(Msgstr("'%s' extension doesn't exist or isn't installed: %s", {name, ext}))
   end
   return ext
 end

@@ -9,6 +9,7 @@ local utils = require "telescope.utils"
 local entry_display = require "telescope.pickers.entry_display"
 local strings = require "plenary.strings"
 local Path = require "plenary.path"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local conf = require("telescope.config").values
 local git_command = utils.__git_command
@@ -22,7 +23,7 @@ end
 git.files = function(opts)
   if opts.is_bare then
     utils.notify("builtin.git_files", {
-      msg = "This operation must be run in a work tree",
+      msg = Msgstr("This operation must be run in a work tree"),
       level = "ERROR",
     })
     return
@@ -32,7 +33,7 @@ git.files = function(opts)
   local recurse_submodules = vim.F.if_nil(opts.recurse_submodules, false)
   if show_untracked and recurse_submodules then
     utils.notify("builtin.git_files", {
-      msg = "Git does not support both --others and --recurse-submodules",
+      msg = Msgstr("Git does not support both --others and --recurse-submodules"),
       level = "ERROR",
     })
     return
@@ -48,7 +49,7 @@ git.files = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Git Files",
+      prompt_title = Msgstr("Git Files"),
       __locations_input = true,
       finder = finders.new_oneshot_job(
         utils.flatten {
@@ -71,7 +72,7 @@ git.commits = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Git Commits",
+      prompt_title = Msgstr("Git Commits"),
       finder = finders.new_oneshot_job(opts.git_command, opts),
       previewer = {
         previewers.git_commit_diff_to_parent.new(opts),
@@ -98,7 +99,7 @@ git.stash = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Git Stash",
+      prompt_title = Msgstr("Git Stash"),
       finder = finders.new_oneshot_job(opts.git_command, opts),
       previewer = previewers.git_stash_diff.new(opts),
       sorter = conf.file_sorter(opts),
@@ -147,7 +148,7 @@ local bcommits_picker = function(opts, title, finder)
         vim.cmd "diffthis"
 
         local bufnr = get_buffer_of_orig(selection)
-        vim.cmd(string.format("%s %s", command, bufnr))
+        vim.cmd(Msgstr("%s %s", {command, bufnr}))
         vim.bo.filetype = ft
         vim.cmd "diffthis"
 
@@ -191,7 +192,7 @@ git.bcommits = function(opts)
   opts.git_command =
     vim.F.if_nil(opts.git_command, git_command({ "log", "--pretty=oneline", "--abbrev-commit", "--follow" }, opts))
 
-  local title = "Git BCommits"
+  local title = Msgstr("Git BCommits")
   local finder = finders.new_oneshot_job(
     utils.flatten {
       opts.git_command,
@@ -230,9 +231,9 @@ git.bcommits_range = function(opts)
     line_number_last = vim.F.if_nil(line_number_last, vim.fn.line ".")
   end
   local line_range =
-    string.format("%d,%d:%s", line_number_first, line_number_last, Path:new(opts.current_file):make_relative(opts.cwd))
+    Msgstr("%d,%d:%s", {line_number_first, line_number_last, Path:new(opts.current_file):make_relative(opts.cwd)})
 
-  local title = "Git BCommits in range"
+  local title = Msgstr("Git BCommits in range")
   local finder = finders.new_oneshot_job(
     utils.flatten {
       opts.git_command,
@@ -334,7 +335,7 @@ git.branches = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Git Branches",
+      prompt_title = Msgstr("Git Branches"),
       finder = finders.new_table {
         results = results,
         entry_maker = function(entry)
@@ -363,7 +364,7 @@ end
 git.status = function(opts)
   if opts.is_bare then
     utils.notify("builtin.git_status", {
-      msg = "This operation must be run in a work tree",
+      msg = Msgstr("This operation must be run in a work tree"),
       level = "ERROR",
     })
     return
@@ -387,7 +388,7 @@ git.status = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Git Status",
+      prompt_title = Msgstr("Git Status"),
       finder = initial_finder,
       previewer = previewers.git_file_diff.new(opts),
       sorter = conf.file_sorter(opts),
@@ -406,7 +407,7 @@ git.status = function(opts)
 
           if count == 0 and prompt == "" then
             utils.notify("builtin.git_status", {
-              msg = "No changes found",
+              msg = Msgstr("No changes found"),
               level = "INFO",
             })
           end

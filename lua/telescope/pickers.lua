@@ -27,6 +27,7 @@ local MultiSelect = require "telescope.pickers.multi"
 
 local truncate = require("plenary.strings").truncate
 local strdisplaywidth = require("plenary.strings").strdisplaywidth
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local ns_telescope_matching = a.nvim_create_namespace "telescope_matching"
 local ns_telescope_prompt = a.nvim_create_namespace "telescope_prompt"
@@ -604,7 +605,7 @@ function Picker:find()
     a.nvim_feedkeys(a.nvim_replace_termcodes(keys, true, false, true), "ni", true)
   else
     utils.notify("pickers.find", {
-      msg = "`initial_mode` should be one of ['normal', 'insert'] but passed " .. self.initial_mode,
+      msg = Msgstr("`initial_mode` should be one of ['normal', 'insert'] but passed %s", {self.initial_mode}),
       level = "ERROR",
     })
   end
@@ -1073,7 +1074,7 @@ function Picker:set_selection(row)
 
   if row > a.nvim_buf_line_count(results_bufnr) then
     log.debug(
-      string.format("Should not be possible to get row this large %s %s", row, a.nvim_buf_line_count(results_bufnr))
+      Msgstr("Should not be possible to get row this large %s %s", {row, a.nvim_buf_line_count(results_bufnr)})
     )
 
     return
@@ -1179,7 +1180,7 @@ function Picker:update_prefix(entry, row)
 
   local line = vim.api.nvim_buf_get_lines(self.results_bufnr, row, row + 1, false)[1]
   if not line then
-    log.trace(string.format("no line found at row %d in buffer %d", row, self.results_bufnr))
+    log.trace(Msgstr("no line found at row %d in buffer %d", {row, self.results_bufnr}))
     return
   end
 
@@ -1188,7 +1189,7 @@ function Picker:update_prefix(entry, row)
     or string.sub(line, 0, #prefix(false)) == prefix(false) and prefix(false)
     or string.sub(line, 0, #prefix(false, true)) == prefix(false, true) and prefix(false, true)
   if old_caret == false then
-    log.warn(string.format("can't identify old caret in line: %s", line))
+    log.warn(Msgstr("can't identify old caret in line: %s", {line}))
     return
   end
 

@@ -6,13 +6,14 @@ local finders = require "telescope.finders"
 local make_entry = require "telescope.make_entry"
 local pickers = require "telescope.pickers"
 local utils = require "telescope.utils"
+local Msgstr = require('telescope.langMSG').Msgstr
 
 local lsp = {}
 
 local function call_hierarchy(opts, method, title, direction, item)
   vim.lsp.buf_request(opts.bufnr, method, { item = item }, function(err, result)
     if err then
-      vim.api.nvim_err_writeln("Error handling " .. title .. ": " .. err.message)
+      vim.api.nvim_err_writeln(Msgstr("Error handling %s: %s", {title, err.message})
       return
     end
 
@@ -59,7 +60,7 @@ local function pick_call_hierarchy_item(call_hierarchy_items)
   local items = {}
   for i, item in pairs(call_hierarchy_items) do
     local entry = item.detail or item.name
-    table.insert(items, string.format("%d. %s", i, entry))
+    table.insert(items, Msgstr("%d. %s", { i, entry }))
   end
   local choice = vim.fn.inputlist(items)
   if choice < 1 or choice > #items then
@@ -93,7 +94,7 @@ local function calls(opts, direction)
   local params = client_position_params()
   vim.lsp.buf_request(opts.bufnr, "textDocument/prepareCallHierarchy", params, function(err, result)
     if err then
-      vim.api.nvim_err_writeln("Error when preparing call hierarchy: " .. err)
+      vim.api.nvim_err_writeln(Msgstr("Error when preparing call hierarchy: %s", err))
       return
     end
 
@@ -229,7 +230,7 @@ local function list_or_jump(action, title, funname, params, opts)
     end
 
     for _, error in pairs(errors) do
-      vim.api.nvim_err_writeln("Error when executing " .. action .. " : " .. error.message)
+      vim.api.nvim_err_writeln(Msgstr("Error when executing %s : %s", {action, error.message})
     end
 
     items = apply_action_handler(action, items, opts)
@@ -237,7 +238,7 @@ local function list_or_jump(action, title, funname, params, opts)
 
     if vim.tbl_isempty(items) then
       utils.notify(funname, {
-        msg = string.format("No %s found", title),
+        msg = Msgstr("No %s found", {title}),
         level = "INFO",
       })
       return
@@ -258,7 +259,7 @@ local function list_or_jump(action, title, funname, params, opts)
         end
 
         if cmd then
-          vim.cmd(string.format("%s %s", cmd, item.filename))
+          vim.cmd(Msgstr("%s %s", { cmd, item.filename }))
         end
       end
 
@@ -347,13 +348,13 @@ lsp.document_symbols = function(opts)
   local params = client_position_params(opts.winnr)
   vim.lsp.buf_request(opts.bufnr, "textDocument/documentSymbol", params, function(err, result, ctx, _)
     if err then
-      vim.api.nvim_err_writeln("Error when finding document symbols: " .. err.message)
+      vim.api.nvim_err_writeln(Msgstr("Error when finding document symbols: %s", {err.message})
       return
     end
 
     if not result or vim.tbl_isempty(result) then
       utils.notify("builtin.lsp_document_symbols", {
-        msg = "No results from textDocument/documentSymbol",
+        msg = Msgstr("No results from textDocument/documentSymbol"),
         level = "INFO",
       })
       return
@@ -375,7 +376,7 @@ lsp.document_symbols = function(opts)
 
     if vim.tbl_isempty(locations) then
       utils.notify("builtin.lsp_document_symbols", {
-        msg = "No document_symbol locations found",
+        msg = Msgstr("No document_symbol locations found"),
         level = "INFO",
       })
       return
@@ -384,7 +385,7 @@ lsp.document_symbols = function(opts)
     opts.path_display = { "hidden" }
     pickers
       .new(opts, {
-        prompt_title = "LSP Document Symbols",
+        prompt_title = Msgstr("LSP Document Symbols"),
         finder = finders.new_table {
           results = locations,
           entry_maker = opts.entry_maker or make_entry.gen_from_lsp_symbols(opts),
@@ -405,7 +406,7 @@ lsp.workspace_symbols = function(opts)
   local params = { query = opts.query or "" }
   vim.lsp.buf_request(opts.bufnr, "workspace/symbol", params, function(err, server_result, ctx, _)
     if err then
-      vim.api.nvim_err_writeln("Error when finding workspace symbols: " .. err.message)
+      vim.api.nvim_err_writeln(Msgstr("Error when finding workspace symbols: %s", {err.message}))
       return
     end
 
@@ -425,8 +426,7 @@ lsp.workspace_symbols = function(opts)
 
     if vim.tbl_isempty(locations) then
       utils.notify("builtin.lsp_workspace_symbols", {
-        msg = "No results from workspace/symbol. Maybe try a different query: "
-          .. "'Telescope lsp_workspace_symbols query=example'",
+        msg = Msgstr("No results from workspace/symbol. Maybe try a different query: 'Telescope lsp_workspace_symbols query=example'"),
         level = "INFO",
       })
       return
@@ -436,7 +436,7 @@ lsp.workspace_symbols = function(opts)
 
     pickers
       .new(opts, {
-        prompt_title = "LSP Workspace Symbols",
+        prompt_title = Msgstr("LSP Workspace Symbols"),
         finder = finders.new_table {
           results = locations,
           entry_maker = opts.entry_maker or make_entry.gen_from_lsp_symbols(opts),
@@ -464,7 +464,7 @@ local function get_workspace_symbols_requester(bufnr, opts)
 
     for client_id, client_res in pairs(results) do
       if client_res.error then
-        vim.api.nvim_err_writeln("Error when executing workspace/symbol : " .. client_res.error.message)
+        vim.api.nvim_err_writeln(Msgstr("Error when executing workspace/symbol : %s", {client_res.error.message})
       elseif client_res.result ~= nil then
         if vim.fn.has "nvim-0.11" == 1 then
           local client = assert(vim.lsp.get_client_by_id(client_id))
@@ -485,7 +485,7 @@ end
 lsp.dynamic_workspace_symbols = function(opts)
   pickers
     .new(opts, {
-      prompt_title = "LSP Dynamic Workspace Symbols",
+      prompt_title = Msgstr("LSP Dynamic Workspace Symbols"),
       finder = finders.new_dynamic {
         entry_maker = opts.entry_maker or make_entry.gen_from_lsp_symbols(opts),
         fn = get_workspace_symbols_requester(opts.bufnr, opts),
@@ -519,12 +519,12 @@ local function check_capabilities(method, bufnr)
 
   if #clients == 0 then
     utils.notify("builtin.lsp_*", {
-      msg = "no client attached",
+      msg = Msgstr("no client attached"),
       level = "INFO",
     })
   else
     utils.notify("builtin.lsp_*", {
-      msg = "server does not support " .. method,
+      msg = Msgstr("server does not support %s", method),
       level = "INFO",
     })
   end
