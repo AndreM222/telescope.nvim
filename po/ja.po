@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-04 17:29-0400\n"
+"POT-Creation-Date: 2025-07-04 17:34-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,6 +22,8 @@ msgid ""
 "Telescope.nvim requires at least nvim-0.9.0. See `:h "
 "telescope.changelog-2499`"
 msgstr ""
+"Telescope.nvimには少なくともnvim-0.9.0が必要です。`:h "
+"telescope.changelog-2499`を参照してください"
 
 #: lua/telescope/init.lua:166
 #, lua-format
@@ -41,7 +43,7 @@ msgstr ""
 #: lua/telescope/health.lua:125
 #, lua-format
 msgid "Telescope Extension: `%s`"
-msgstr ""
+msgstr "Telescope拡張: `%s`"
 
 #: lua/telescope/previewers/term_previewer.lua:46
 #, lua-format
@@ -56,7 +58,7 @@ msgstr ""
 #: lua/telescope/previewers/term_previewer.lua:254
 #: lua/telescope/previewers/buffer_previewer.lua:493
 msgid "File Preview"
-msgstr ""
+msgstr "ファイルプレビュー"
 
 #: lua/telescope/previewers/term_previewer.lua:277
 #: lua/telescope/previewers/term_previewer.lua:312
@@ -67,15 +69,15 @@ msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/previewer.lua:88
 msgid "send_input is not defined for this previewer"
-msgstr ""
+msgstr "このプレビューワーではsend_inputが定義されていません"
 
 #: lua/telescope/previewers/previewer.lua:96
 msgid "scroll_fn is not defined for this previewer"
-msgstr ""
+msgstr "このプレビューワーではscroll_fnが定義されていません"
 
 #: lua/telescope/previewers/previewer.lua:104
 msgid "scroll_horizontal_fn is not defined for this previewer"
-msgstr ""
+msgstr "このプレビューワーではscroll_horizontal_fnが定義されていません"
 
 #: lua/telescope/previewers/buffer_previewer.lua:172
 #, lua-format
@@ -84,7 +86,7 @@ msgstr ""
 
 #: lua/telescope/previewers/buffer_previewer.lua:192
 msgid "File exceeds preview size limit"
-msgstr ""
+msgstr "ファイルがプレビューサイズ制限を超えています"
 
 #: lua/telescope/previewers/buffer_previewer.lua:225
 msgid "Binary cannot be previewed"
@@ -92,63 +94,56 @@ msgstr "バイナリはプレビュー出来ません"
 
 #: lua/telescope/previewers/buffer_previewer.lua:240
 msgid "Previewer timed out"
-msgstr ""
+msgstr "プレビューワーがタイムアウトしました"
 
 #: lua/telescope/previewers/buffer_previewer.lua:637
-#, fuzzy
 msgid "Tags Preview"
-msgstr "グレッププレビュー"
+msgstr "タグプレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:700
-#, fuzzy
 msgid "Help Preview"
-msgstr "グレッププレビュー"
+msgstr "ヘルププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:731
-#, fuzzy
 msgid "Man Preview"
-msgstr "グレッププレビュー"
+msgstr "マニュアルプレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:798
-#, fuzzy
 msgid "Git Branch Preview"
-msgstr "グレッププレビュー"
+msgstr "Gitブランチプレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:832
-#, fuzzy
 msgid "Git Stash Preview"
-msgstr "グレッププレビュー"
+msgstr "Git スタッシュプレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:855
 msgid "Git Diff to Parent Preview"
-msgstr ""
+msgstr "Git 親への差分プレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:885
 msgid "Git Diff to Head Preview"
-msgstr ""
+msgstr "Git HEADへの差分プレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:916
-#, fuzzy
 msgid "Git Show Preview"
 msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:952
 msgid "Git Message"
-msgstr ""
+msgstr "Gitメッセージ"
 
 #: lua/telescope/previewers/buffer_previewer.lua:982
-#, fuzzy
 msgid "Git File Diff Preview"
-msgstr "グレッププレビュー"
+msgstr "Gitファイル差分プレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:1018
 msgid "Autocommands Preview"
-msgstr ""
+msgstr "自動コマンドプレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:1043
 #, lua-format
 msgid " augroup: %s - [ %d entries ]"
-msgstr ""
+msgstr " augroup: %s - [ %d エントリ ]"
 
 #: lua/telescope/previewers/buffer_previewer.lua:1054
 msgid "  %-14s▏%-08s %s"
@@ -156,7 +151,7 @@ msgstr ""
 
 #: lua/telescope/previewers/buffer_previewer.lua:1084
 msgid "Highlights Preview"
-msgstr ""
+msgstr "ハイライトプレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:1155
 #, lua-format
@@ -166,12 +161,12 @@ msgstr ""
 #: lua/telescope/config/resolve.lua:99
 #, lua-format
 msgid "Invalid configuration option for '%s': '%s'"
-msgstr ""
+msgstr "'%s'の設定オプションが無効です: '%s'"
 
 #: lua/telescope/_.lua:266
 #, lua-format
 msgid "Err: %s, Data: '%s'"
-msgstr ""
+msgstr "エラー: %s, データ: '%s'"
 
 #: lua/telescope/config.lua:425
 #, lua-format
@@ -190,169 +185,172 @@ msgstr "結果"
 #: lua/telescope/_extensions/init.lua:12
 #, lua-format
 msgid "'%s' extension doesn't exist or isn't installed: %s"
-msgstr ""
+msgstr "'%s'拡張が存在しないかインストールされていません: %s"
 
 #: lua/telescope/pickers.lua:608
 #, lua-format
 msgid "`initial_mode` should be one of ['normal', 'insert'] but passed %s"
 msgstr ""
+"`initial_mode`は['normal', 'insert']のいずれかである必要がありますが、%sが渡"
+"されました"
 
 #: lua/telescope/pickers.lua:1077
 #, lua-format
 msgid "Should not be possible to get row this large %s %s"
-msgstr ""
+msgstr "このような大きな行を取得することはできません %s %s"
 
 #: lua/telescope/pickers.lua:1183
 #, lua-format
 msgid "no line found at row %d in buffer %d"
-msgstr ""
+msgstr "バッファ %d の行 %d で行が見つかりません"
 
 #: lua/telescope/pickers.lua:1192
 #, lua-format
 msgid "can't identify old caret in line: %s"
-msgstr ""
+msgstr "行内の古いカーソルを識別できません: %s"
 
 #: lua/telescope/actions/init.lua:553 lua/telescope/actions/init.lua:687
 msgid "Missing the new branch name"
-msgstr ""
+msgstr "新しいブランチ名が不足しています"
 
 #: lua/telescope/actions/init.lua:557
 #, lua-format
 msgid "Create new branch '%s'? [y/n]: "
-msgstr ""
+msgstr "新しいブランチ '%s' を作成しますか？ [y/n]: "
 
 #: lua/telescope/actions/init.lua:560
 #, lua-format
 msgid "branch creation canceled: '%s'"
-msgstr ""
+msgstr "ブランチ作成がキャンセルされました: '%s'"
 
 #: lua/telescope/actions/init.lua:571
 #, lua-format
 msgid "Switched to a new branch: %s"
-msgstr ""
+msgstr "新しいブランチに切り替えました: %s"
 
 #: lua/telescope/actions/init.lua:577
 #, lua-format
 msgid "Error when creating new branch: '%s' Git returned '%s'"
 msgstr ""
+"新しいブランチの作成中にエラーが発生しました: '%s' Gitが返しました '%s'"
 
 #: lua/telescope/actions/init.lua:599
 #, lua-format
 msgid "applied: '%s' "
-msgstr ""
+msgstr "適用されました: '%s' "
 
 #: lua/telescope/actions/init.lua:604
 #, lua-format
 msgid "Error when applying: %s. Git returned: '%s'"
-msgstr ""
+msgstr "適用中にエラーが発生しました: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:623
 #, lua-format
 msgid "Checked out: %s"
-msgstr ""
+msgstr "チェックアウトしました: %s"
 
 #: lua/telescope/actions/init.lua:630
 #, lua-format
 msgid "Error when checking out: %s. Git returned: '%s'"
-msgstr ""
+msgstr "チェックアウト中にエラーが発生しました: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:659
 #, lua-format
 msgid "Switched to: '%s'"
-msgstr ""
+msgstr "切り替えました: '%s'"
 
 #: lua/telescope/actions/init.lua:665
 #, lua-format
 msgid "Error when switching to: %s. Git returned: '%s'"
-msgstr ""
+msgstr "切り替え中にエラーが発生しました: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:695
 #, lua-format
 msgid "Renamed branch: '%s'"
-msgstr ""
+msgstr "ブランチ名を変更しました: '%s'"
 
 #: lua/telescope/actions/init.lua:701
 #, lua-format
 msgid "Error when renaming branch: %s. Git returned: '%s'"
-msgstr ""
+msgstr "ブランチ名の変更中にエラーが発生しました: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:725 lua/telescope/actions/init.lua:766
 #: lua/telescope/actions/init.lua:831
 msgid "action canceled"
-msgstr ""
+msgstr "アクションがキャンセルされました"
 
 #: lua/telescope/actions/init.lua:753
 #, lua-format
 msgid "Tracking branch: %s"
-msgstr ""
+msgstr "追跡ブランチ: %s"
 
 #: lua/telescope/actions/init.lua:754
 #, lua-format
 msgid "Error when tracking branch: %s. Git returned: '%s'"
-msgstr ""
+msgstr "ブランチ追跡中にエラーが発生しました: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:763
 msgid "Do you really want to delete the selected branches? [Y/n] "
-msgstr ""
+msgstr "選択されたブランチを本当に削除しますか？ [Y/n] "
 
 #: lua/telescope/actions/init.lua:780
 #, lua-format
 msgid "Deleted branch: %s"
-msgstr ""
+msgstr "ブランチを削除しました: %s"
 
 #: lua/telescope/actions/init.lua:785
 #, lua-format
 msgid "Error when deleting branch: %s. Git returned: '%s'"
-msgstr ""
+msgstr "ブランチ削除中にエラーが発生しました: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:798
 #, lua-format
 msgid "Do you really wanna merge branch %s? [Y/n] "
-msgstr ""
+msgstr "ブランチ %s を本当にマージしますか？ [Y/n] "
 
 #: lua/telescope/actions/init.lua:799
 #, lua-format
 msgid "Merged branch: %s"
-msgstr ""
+msgstr "ブランチをマージしました: %s"
 
 #: lua/telescope/actions/init.lua:800
 #, lua-format
 msgid "Error when merging branch: %s. Git returned: '%s'"
-msgstr ""
+msgstr "ブランチマージ中にエラーが発生しました: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:811
 #, lua-format
 msgid "Do you really wanna rebase branch %s? [Y/n] "
-msgstr ""
+msgstr "ブランチ %s を本当にリベースしますか？ [Y/n] "
 
 #: lua/telescope/actions/init.lua:812
 #, lua-format
 msgid "Rebased branch: %s"
-msgstr ""
+msgstr "ブランチをリベースしました: %s"
 
 #: lua/telescope/actions/init.lua:813
 #, lua-format
 msgid "Error when rebasing branch: %s. Git returned: '%s'"
-msgstr ""
+msgstr "ブランチリベース中にエラーが発生しました: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:828
 #, lua-format
 msgid "Do you really wanna %s reset to %s? [Y/n] "
-msgstr ""
+msgstr "本当に %s を %s にリセットしますか？ [Y/n] "
 
 #: lua/telescope/actions/init.lua:841
 #, lua-format
 msgid "Reset to: '%s'"
-msgstr ""
+msgstr "リセットしました: '%s'"
 
 #: lua/telescope/actions/init.lua:846
 #, lua-format
 msgid "Rest to: %s. Git returned: '%s'"
-msgstr ""
+msgstr "リセット: %s. Gitが返しました: '%s'"
 
 #: lua/telescope/actions/init.lua:1087
 msgid "No tag pre-filtering set for this picker"
-msgstr ""
+msgstr "このピッカーにタグ事前フィルタリングが設定されていません"
 
 #: lua/telescope/actions/init.lua:1097
 #, lua-format
@@ -361,11 +359,11 @@ msgstr ""
 
 #: lua/telescope/actions/init.lua:1118
 msgid "No matches found"
-msgstr ""
+msgstr "一致するものが見つかりません"
 
 #: lua/telescope/actions/init.lua:1335
 msgid "No name available for anonymous functions."
-msgstr ""
+msgstr "匿名関数の名前が利用できません。"
 
 #: lua/telescope/actions/init.lua:1483 lua/telescope/builtin/__files.lua:177
 msgid "Live Grep"
@@ -373,19 +371,19 @@ msgstr "ライブGrep"
 
 #: lua/telescope/actions/init.lua:1484
 msgid "Find Word"
-msgstr ""
+msgstr "単語を検索"
 
 #: lua/telescope/actions/init.lua:1485 lua/telescope/builtin/__lsp.lua:488
 msgid "LSP Dynamic Workspace Symbols"
-msgstr ""
+msgstr "LSP 動的ワークスペースシンボル"
 
 #: lua/telescope/actions/init.lua:1486 lua/telescope/builtin/__lsp.lua:439
 msgid "LSP Workspace Symbols"
-msgstr ""
+msgstr "LSP ワークスペースシンボル"
 
 #: lua/telescope/actions/init.lua:1492
 msgid "Fuzzy over"
-msgstr ""
+msgstr "ファジー検索"
 
 #: lua/telescope/actions/init.lua:1499
 #, lua-format
@@ -398,6 +396,8 @@ msgid ""
 "There was no associated buffer command for %q.\n"
 "Valid commands are: %s."
 msgstr ""
+"%q に関連付けられたバッファコマンドがありませんでした。\n"
+"有効なコマンドは: %s です。"
 
 #: lua/telescope/actions/set.lua:105
 #, lua-format
@@ -413,35 +413,37 @@ msgstr ""
 
 #: lua/telescope/actions/set.lua:135 lua/telescope/utils.lua:703
 msgid "Nothing currently selected"
-msgstr ""
+msgstr "現在何も選択されていません"
 
 #: lua/telescope/actions/set.lua:155
 msgid "Could not do anything with blank line..."
-msgstr ""
+msgstr "空行では何もできませんでした..."
 
 #: lua/telescope/actions/history.lua:121 lua/telescope/actions/history.lua:150
 msgid ""
 "You are cycling to next the history item but history is disabled. Read "
 "':help telescope.defaults.history'"
 msgstr ""
+"次の履歴アイテムをサイクリングしようとしていますが、履歴が無効になっていま"
+"す。':help telescope.defaults.history'を読んでください"
 
 #: lua/telescope/command.lua:126
 #, lua-format
 msgid "Type of '%s' does not match"
-msgstr ""
+msgstr "'%s'の型が一致しません"
 
 #: lua/telescope/command.lua:163
 msgid "Command missing arguments"
-msgstr ""
+msgstr "コマンドに引数が不足しています"
 
 #: lua/telescope/command.lua:205
 msgid "Unknown command"
-msgstr ""
+msgstr "不明なコマンド"
 
 #: lua/telescope/pickers/window.lua:11
 #, lua-format
 msgid "'%s' is not a valid layout strategy"
-msgstr ""
+msgstr "'%s'は有効なレイアウト戦略ではありません"
 
 #: lua/telescope/pickers/layout_strategies.lua:169
 #, lua-format
@@ -449,6 +451,8 @@ msgid ""
 "Unsupported layout_config key for the %s strategy: %s\n"
 "%s"
 msgstr ""
+"%s戦略でサポートされていないlayout_configキー: %s\n"
+"%s"
 
 #: lua/telescope/pickers/layout_strategies.lua:220
 #, lua-format
@@ -468,7 +472,7 @@ msgstr ""
 #: lua/telescope/pickers/layout_strategies.lua:227
 #, lua-format
 msgid "expected string or table but found '%s'"
-msgstr ""
+msgstr "文字列またはテーブルが期待されましたが、'%s'が見つかりました"
 
 #: lua/telescope/pickers/layout_strategies.lua:380
 #: lua/telescope/pickers/layout_strategies.lua:490
@@ -480,44 +484,48 @@ msgid ""
 "Unknown prompt_position: %s\n"
 "%s"
 msgstr ""
+"不明なprompt_position: %s\n"
+"%s"
 
 #: lua/telescope/pickers/scroller.lua:62
 #, lua-format
 msgid "Must never return a negative row: { result = %s, args = { %s %s %s } }"
-msgstr ""
+msgstr "負の行を返してはいけません: { result = %s, args = { %s %s %s } }"
 
 #: lua/telescope/pickers/scroller.lua:74
 #, lua-format
 msgid "Must never exceed max results: { result = %s, args = { %s %s %s } }"
-msgstr ""
+msgstr "最大結果を超えてはいけません: { result = %s, args = { %s %s %s } }"
 
 #: lua/telescope/utils.lua:122
 msgid ""
 "Either opts.symbols or opts.ignore_symbols, can't process opposing options "
 "at the same time!"
 msgstr ""
+"opts.symbolsまたはopts.ignore_symbolsのいずれかです。対立するオプションを同時"
+"に処理できません！"
 
 #: lua/telescope/utils.lua:134
 msgid "Please pass ignore_symbols as either a string or a list of strings"
-msgstr ""
+msgstr "ignore_symbolsを文字列または文字列のリストとして渡してください"
 
 #: lua/telescope/utils.lua:150
 msgid "Please pass filtering symbols as either a string or a list of strings"
-msgstr ""
+msgstr "フィルタリングシンボルを文字列または文字列のリストとして渡してください"
 
 #: lua/telescope/utils.lua:174
 #, lua-format
 msgid "%s symbol(s) were not part of the query results"
-msgstr ""
+msgstr "%s シンボルがクエリ結果に含まれていませんでした"
 
 #: lua/telescope/utils.lua:180
 #, lua-format
 msgid "%s ignore_symbol(s) have removed everything from the query result"
-msgstr ""
+msgstr "%s ignore_symbolがクエリ結果からすべてを削除しました"
 
 #: lua/telescope/utils.lua:560
 msgid "cmd has to be a table"
-msgstr ""
+msgstr "cmdはテーブルである必要があります"
 
 #: lua/telescope/utils.lua:696
 #, lua-format
@@ -536,7 +544,7 @@ msgstr ""
 
 #: lua/telescope/make_entry.lua:442
 msgid "<empty commit message>"
-msgstr ""
+msgstr "<空のコミットメッセージ>"
 
 #: lua/telescope/make_entry.lua:463
 #, lua-format
@@ -560,11 +568,11 @@ msgstr ""
 
 #: lua/telescope/builtin/__internal.lua:55
 msgid "Telescope Builtin"
-msgstr ""
+msgstr "Telescope 内蔵"
 
 #: lua/telescope/builtin/__internal.lua:58
 msgid "Telescope Pickers"
-msgstr ""
+msgstr "Telescope ピッカー"
 
 #: lua/telescope/builtin/__internal.lua:66
 #, lua-format
@@ -574,20 +582,21 @@ msgstr ""
 #: lua/telescope/builtin/__internal.lua:139
 #: lua/telescope/builtin/__internal.lua:182
 msgid "No cached picker(s)."
-msgstr ""
+msgstr "キャッシュされたピッカーがありません。"
 
 #: lua/telescope/builtin/__internal.lua:147
 #, lua-format
 msgid "Index too large as there are only '%s' pickers cached"
 msgstr ""
+"キャッシュされたピッカーは'%s'個しかないため、インデックスが大きすぎます"
 
 #: lua/telescope/builtin/__internal.lua:198
 msgid "Pickers"
-msgstr ""
+msgstr "ピッカー"
 
 #: lua/telescope/builtin/__internal.lua:252
 msgid "Planets"
-msgstr ""
+msgstr "惑星"
 
 #: lua/telescope/builtin/__internal.lua:301
 msgid ""
@@ -595,14 +604,17 @@ msgid ""
 "symbols.nvim for some prebuild symbols or how to create you own symbol "
 "source."
 msgstr ""
+"ソースが見つかりません！事前構築済みシンボルや独自のシンボルソースの作成方法"
+"については、https://github.com/nvim-telescope/telescope-symbols.nvim をご確認"
+"ください。"
 
 #: lua/telescope/builtin/__internal.lua:330
 msgid "Symbols"
-msgstr ""
+msgstr "シンボル"
 
 #: lua/telescope/builtin/__internal.lua:357
 msgid "Commands"
-msgstr ""
+msgstr "コマンド"
 
 #: lua/telescope/builtin/__internal.lua:392
 #, lua-format
@@ -611,7 +623,7 @@ msgstr ""
 
 #: lua/telescope/builtin/__internal.lua:413
 msgid "No quickfix items"
-msgstr ""
+msgstr "Quickfixアイテムがありません"
 
 #: lua/telescope/builtin/__internal.lua:419
 msgid "Quickfix"
@@ -619,15 +631,15 @@ msgstr ""
 
 #: lua/telescope/builtin/__internal.lua:453
 msgid "Quickfix History"
-msgstr ""
+msgstr "Quickfix履歴"
 
 #: lua/telescope/builtin/__internal.lua:459
 msgid "Quickfix List Preview"
-msgstr ""
+msgstr "Quickfixリストプレビュー"
 
 #: lua/telescope/builtin/__internal.lua:510
 msgid "No loclist items"
-msgstr ""
+msgstr "loclistアイテムがありません"
 
 #: lua/telescope/builtin/__internal.lua:516
 msgid "Loclist"
@@ -635,19 +647,19 @@ msgstr ""
 
 #: lua/telescope/builtin/__internal.lua:574
 msgid "Oldfiles"
-msgstr ""
+msgstr "最近開いたファイル"
 
 #: lua/telescope/builtin/__internal.lua:609
 msgid "Command History"
-msgstr ""
+msgstr "コマンド履歴"
 
 #: lua/telescope/builtin/__internal.lua:639
 msgid "Search History"
-msgstr ""
+msgstr "検索履歴"
 
 #: lua/telescope/builtin/__internal.lua:671
 msgid "options"
-msgstr ""
+msgstr "オプション"
 
 #: lua/telescope/builtin/__internal.lua:691
 #, lua-format
@@ -665,28 +677,28 @@ msgstr "ヘルプ"
 
 #: lua/telescope/builtin/__internal.lua:840
 msgid "Man"
-msgstr ""
+msgstr "マニュアル"
 
 #: lua/telescope/builtin/__internal.lua:889
 msgid "Packages"
-msgstr ""
+msgstr "パッケージ"
 
 #: lua/telescope/builtin/__internal.lua:908
 #, lua-format
 msgid "[%s] - module reloaded"
-msgstr ""
+msgstr "[%s] - モジュールがリロードされました"
 
 #: lua/telescope/builtin/__internal.lua:946
 msgid "No buffers found with the provided options"
-msgstr ""
+msgstr "指定されたオプションでバッファが見つかりません"
 
 #: lua/telescope/builtin/__internal.lua:993
 msgid "Buffers"
-msgstr "ブッファ"
+msgstr "バッファ"
 
 #: lua/telescope/builtin/__internal.lua:1075
 msgid "Change Colorscheme"
-msgstr ""
+msgstr "カラースキーム変更"
 
 #: lua/telescope/builtin/__internal.lua:1173
 #, lua-format
@@ -695,35 +707,35 @@ msgstr ""
 
 #: lua/telescope/builtin/__internal.lua:1192
 msgid "Marks"
-msgstr ""
+msgstr "マーク"
 
 #: lua/telescope/builtin/__internal.lua:1220
 msgid "Registers"
-msgstr ""
+msgstr "レジスタ"
 
 #: lua/telescope/builtin/__internal.lua:1275
 msgid "Key Maps"
-msgstr ""
+msgstr "キーマップ"
 
 #: lua/telescope/builtin/__internal.lua:1303
 msgid "Filetypes"
-msgstr ""
+msgstr "ファイルタイプ"
 
 #: lua/telescope/builtin/__internal.lua:1330
 msgid "Highlights"
-msgstr ""
+msgstr "ハイライト"
 
 #: lua/telescope/builtin/__internal.lua:1361
 msgid "autocommands"
-msgstr ""
+msgstr "自動コマンド"
 
 #: lua/telescope/builtin/__internal.lua:1420
 msgid "Spelling Suggestions"
-msgstr ""
+msgstr "スペル提案"
 
 #: lua/telescope/builtin/__internal.lua:1464
 msgid "No tagstack available"
-msgstr ""
+msgstr "tagstackが利用できません"
 
 #: lua/telescope/builtin/__internal.lua:1472
 msgid "TagStack"
@@ -731,7 +743,7 @@ msgstr ""
 
 #: lua/telescope/builtin/__internal.lua:1499
 msgid "Jumplist"
-msgstr ""
+msgstr "ジャンプリスト"
 
 #: lua/telescope/builtin/__files.lua:51
 #, lua-format
@@ -740,15 +752,17 @@ msgid ""
 "picker. Visit https://github.com/BurntSushi/ripgrep#installation for "
 "installation instructions."
 msgstr ""
+"%sピッカーには'ripgrep'または同等のツールが必要です。インストール方法は "
+"https://github.com/BurntSushi/ripgrep#installation をご覧ください。"
 
 #: lua/telescope/builtin/__files.lua:258
 #, lua-format
 msgid "Find Word (%s)"
-msgstr ""
+msgstr "単語を検索 (%s)"
 
 #: lua/telescope/builtin/__files.lua:289
 msgid "You need to install either find, fd, or rg"
-msgstr ""
+msgstr "find、fd、またはrgのいずれかをインストールしてください"
 
 #: lua/telescope/builtin/__files.lua:389
 msgid "Find Files"
@@ -756,91 +770,92 @@ msgstr "ファイルの検索"
 
 #: lua/telescope/builtin/__files.lua:419
 msgid "This picker requires nvim-treesitter"
-msgstr ""
+msgstr "このピッカーはnvim-treesitterが必要です"
 
 #: lua/telescope/builtin/__files.lua:428
 msgid "No parser for the current buffer"
-msgstr ""
+msgstr "現在のバッファ用のパーサーが見つかりません"
 
 #: lua/telescope/builtin/__files.lua:456
 msgid "Treesitter Symbols"
-msgstr ""
+msgstr "Treesitterシンボル"
 
 #: lua/telescope/builtin/__files.lua:536
 msgid "Current Buffer Fuzzy"
-msgstr ""
+msgstr "現在のバッファをあいまい検索"
 
 #: lua/telescope/builtin/__files.lua:589
 msgid "No tags file found. Create one with ctags -R"
-msgstr ""
+msgstr "タグファイルが見つかりません。`ctags -R`で作成してください"
 
 #: lua/telescope/builtin/__files.lua:598
 msgid "Tags"
-msgstr ""
+msgstr "タグ"
 
 #: lua/telescope/builtin/__files.lua:634
 msgid "Current Buffer Tags"
-msgstr ""
+msgstr "現在のバッファのタグ"
 
 #: lua/telescope/builtin/__git.lua:26 lua/telescope/builtin/__git.lua:367
 msgid "This operation must be run in a work tree"
-msgstr ""
+msgstr "この操作は作業ツリー内で実行する必要があります"
 
 #: lua/telescope/builtin/__git.lua:36
 msgid "Git does not support both --others and --recurse-submodules"
-msgstr ""
+msgstr "Gitは--othersと--recurse-submodulesを同時に使用できません"
 
 #: lua/telescope/builtin/__git.lua:52
 msgid "Git Files"
-msgstr ""
+msgstr "Gitファイル"
 
 #: lua/telescope/builtin/__git.lua:75
 msgid "Git Commits"
-msgstr ""
+msgstr "Gitコミット"
 
 #: lua/telescope/builtin/__git.lua:102
 msgid "Git Stash"
-msgstr ""
+msgstr "Gitスタッシュ"
 
 #: lua/telescope/builtin/__git.lua:195
 msgid "Git BCommits"
-msgstr ""
+msgstr "Gitブランチコミット"
 
 #: lua/telescope/builtin/__git.lua:234
 #, lua-format
 msgid "%d,%d:%s"
-msgstr ""
+msgstr "%d,%d:%s"
 
 #: lua/telescope/builtin/__git.lua:236
 msgid "Git BCommits in range"
-msgstr ""
+msgstr "範囲内のGitブランチコミット"
 
 #: lua/telescope/builtin/__git.lua:338
 msgid "Git Branches"
-msgstr ""
+msgstr "Gitブランチ"
 
 #: lua/telescope/builtin/__git.lua:391
 msgid "Git Status"
-msgstr "Gitステータス"
+msgstr "Gitスタッシュ"
 
 #: lua/telescope/builtin/__git.lua:410
 msgid "No changes found"
-msgstr ""
+msgstr "変更は見つかりませんでした"
 
 #: lua/telescope/builtin/__diagnostics.lua:78
 msgid ""
 "Invalid severity parameters. Both a specific severity and a limit/bound is "
 "not allowed"
 msgstr ""
+"無効な深刻度パラメータです。具体的な深刻度と上限/制限を同時に指定できません"
 
 #: lua/telescope/builtin/__diagnostics.lua:148
 msgid "No diagnostics found"
-msgstr ""
+msgstr "診断情報が見つかりません"
 
 #: lua/telescope/builtin/__diagnostics.lua:156
 #, lua-format
 msgid "'%s' is not a valid value for line_width"
-msgstr ""
+msgstr "'%s' は line_width に対して無効な値です"
 
 #: lua/telescope/builtin/__diagnostics.lua:164
 msgid "Workspace Diagnostics"
@@ -848,71 +863,73 @@ msgstr "ワークスペース診断"
 
 #: lua/telescope/builtin/__diagnostics.lua:164
 msgid "Document Diagnostics"
-msgstr ""
+msgstr "ドキュメント診断"
 
 #: lua/telescope/builtin/__lsp.lua:16
 #, lua-format
 msgid "Error handling %s: %s"
-msgstr ""
+msgstr "%s の処理中にエラー: %s"
 
 #: lua/telescope/builtin/__lsp.lua:63
 #, lua-format
 msgid "%d. %s"
-msgstr ""
+msgstr "%d. %s"
 
 #: lua/telescope/builtin/__lsp.lua:97
 #, lua-format
 msgid "Error when preparing call hierarchy: %s"
-msgstr ""
+msgstr "呼び出し階層の準備中にエラー: %s"
 
 #: lua/telescope/builtin/__lsp.lua:233
 #, lua-format
 msgid "Error when executing %s : %s"
-msgstr ""
+msgstr "%s の実行中にエラー : %s"
 
 #: lua/telescope/builtin/__lsp.lua:241
 #, lua-format
 msgid "No %s found"
-msgstr ""
+msgstr "%s が見つかりません"
 
 #: lua/telescope/builtin/__lsp.lua:351
 #, lua-format
 msgid "Error when finding document symbols: %s"
-msgstr ""
+msgstr "ドキュメントシンボルの検索中にエラー: %s"
 
 #: lua/telescope/builtin/__lsp.lua:357
 msgid "No results from textDocument/documentSymbol"
-msgstr ""
+msgstr "textDocument/documentSymbol から結果がありません"
 
 #: lua/telescope/builtin/__lsp.lua:379
 msgid "No document_symbol locations found"
-msgstr ""
+msgstr "ドキュメントシンボルの位置が見つかりません"
 
 #: lua/telescope/builtin/__lsp.lua:388
 msgid "LSP Document Symbols"
-msgstr ""
+msgstr "LSPドキュメントシンボル"
 
 #: lua/telescope/builtin/__lsp.lua:409
 #, lua-format
 msgid "Error when finding workspace symbols: %s"
-msgstr ""
+msgstr "ワークスペースシンボルの検索中にエラー: %s"
 
 #: lua/telescope/builtin/__lsp.lua:429
 msgid ""
 "No results from workspace/symbol. Maybe try a different query: 'Telescope "
 "lsp_workspace_symbols query=example'"
 msgstr ""
+"workspace/symbol から結果がありません。別のクエリを試してください: "
+"'Telescope lsp_workspace_symbols query=example'"
 
 #: lua/telescope/builtin/__lsp.lua:467
 #, lua-format
 msgid "Error when executing workspace/symbol : %s"
-msgstr ""
+msgstr "workspace/symbol の実行中にエラー : %s"
 
 #: lua/telescope/builtin/__lsp.lua:522
 msgid "no client attached"
-msgstr ""
+msgstr "クライアントが接続されていません"
 
 #: lua/telescope/builtin/__lsp.lua:527
 #, lua-format
 msgid "server does not support %s"
-msgstr ""
+msgstr "サーバーは %s をサポートしていません"

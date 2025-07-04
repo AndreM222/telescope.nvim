@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-04 17:34-0400\n"
+"POT-Creation-Date: 2025-07-04 17:29-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,7 +63,7 @@ msgstr ""
 #: lua/telescope/previewers/buffer_previewer.lua:558
 #: lua/telescope/previewers/buffer_previewer.lua:669
 msgid "Grep Preview"
-msgstr ""
+msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/previewer.lua:88
 msgid "send_input is not defined for this previewer"
@@ -88,31 +88,36 @@ msgstr ""
 
 #: lua/telescope/previewers/buffer_previewer.lua:225
 msgid "Binary cannot be previewed"
-msgstr ""
+msgstr "バイナリはプレビュー出来ません"
 
 #: lua/telescope/previewers/buffer_previewer.lua:240
 msgid "Previewer timed out"
 msgstr ""
 
 #: lua/telescope/previewers/buffer_previewer.lua:637
+#, fuzzy
 msgid "Tags Preview"
-msgstr ""
+msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:700
+#, fuzzy
 msgid "Help Preview"
-msgstr ""
+msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:731
+#, fuzzy
 msgid "Man Preview"
-msgstr ""
+msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:798
+#, fuzzy
 msgid "Git Branch Preview"
-msgstr ""
+msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:832
+#, fuzzy
 msgid "Git Stash Preview"
-msgstr ""
+msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:855
 msgid "Git Diff to Parent Preview"
@@ -123,16 +128,18 @@ msgid "Git Diff to Head Preview"
 msgstr ""
 
 #: lua/telescope/previewers/buffer_previewer.lua:916
+#, fuzzy
 msgid "Git Show Preview"
-msgstr ""
+msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:952
 msgid "Git Message"
 msgstr ""
 
 #: lua/telescope/previewers/buffer_previewer.lua:982
+#, fuzzy
 msgid "Git File Diff Preview"
-msgstr ""
+msgstr "グレッププレビュー"
 
 #: lua/telescope/previewers/buffer_previewer.lua:1018
 msgid "Autocommands Preview"
@@ -178,7 +185,7 @@ msgstr ""
 
 #: lua/telescope/config.lua:478
 msgid "Results"
-msgstr ""
+msgstr "結果"
 
 #: lua/telescope/_extensions/init.lua:12
 #, lua-format
@@ -362,7 +369,7 @@ msgstr ""
 
 #: lua/telescope/actions/init.lua:1483 lua/telescope/builtin/__files.lua:177
 msgid "Live Grep"
-msgstr ""
+msgstr "ライブGrep"
 
 #: lua/telescope/actions/init.lua:1484
 msgid "Find Word"
@@ -654,7 +661,7 @@ msgstr ""
 
 #: lua/telescope/builtin/__internal.lua:781
 msgid "Help"
-msgstr ""
+msgstr "ヘルプ"
 
 #: lua/telescope/builtin/__internal.lua:840
 msgid "Man"
@@ -675,7 +682,7 @@ msgstr ""
 
 #: lua/telescope/builtin/__internal.lua:993
 msgid "Buffers"
-msgstr ""
+msgstr "ブッファ"
 
 #: lua/telescope/builtin/__internal.lua:1075
 msgid "Change Colorscheme"
@@ -745,7 +752,7 @@ msgstr ""
 
 #: lua/telescope/builtin/__files.lua:389
 msgid "Find Files"
-msgstr ""
+msgstr "ファイルの検索"
 
 #: lua/telescope/builtin/__files.lua:419
 msgid "This picker requires nvim-treesitter"
@@ -814,7 +821,7 @@ msgstr ""
 
 #: lua/telescope/builtin/__git.lua:391
 msgid "Git Status"
-msgstr ""
+msgstr "Gitステータス"
 
 #: lua/telescope/builtin/__git.lua:410
 msgid "No changes found"
@@ -837,7 +844,7 @@ msgstr ""
 
 #: lua/telescope/builtin/__diagnostics.lua:164
 msgid "Workspace Diagnostics"
-msgstr ""
+msgstr "ワークスペース診断"
 
 #: lua/telescope/builtin/__diagnostics.lua:164
 msgid "Document Diagnostics"
