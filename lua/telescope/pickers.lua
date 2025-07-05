@@ -1520,7 +1520,7 @@ function Picker:_do_selection(prompt)
     end
     return
   else
-    error("Unknown selection strategy: " .. selection_strategy)
+    error(Msgstr("Unknown selection strategy: %s", {selection_strategy}))
   end
 end
 

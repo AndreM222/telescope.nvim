@@ -129,7 +129,7 @@ local get_cycle_layout = function(dir)
       picker.previewer = (new_layout.previewer == nil and picker.all_previewers[picker.current_previewer_index])
         or new_layout.previewer
     else
-      error("Not a valid layout setup: " .. vim.inspect(new_layout) .. "\nShould be a string or a table")
+      error(Msgstr("Not a valid layout setup: %s\nShould be a string or a table", {vim.inspect(new_layout)}))
     end
 
     picker:full_layout_update()

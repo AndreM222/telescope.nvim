@@ -690,7 +690,7 @@ utils.notify = function(funname, opts)
   opts.once = vim.F.if_nil(opts.once, false)
   local level = vim.log.levels[opts.level]
   if not level then
-    error("Invalid error level", 2)
+    error(Msgstr("Invalid error level"), 2)
   end
   local notify_fn = opts.once and vim.notify_once or vim.notify
   notify_fn(Msgstr("[telescope.%s]: %s", {funname, opts.msg}), level, {

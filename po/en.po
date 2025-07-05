@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-04 17:29-0400\n"
+"POT-Creation-Date: 2025-07-05 10:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,9 +38,59 @@ msgstr ""
 msgid "    %s"
 msgstr ""
 
+#: lua/telescope/health.lua:72
+msgid "Checking for required plugins"
+msgstr ""
+
+#: lua/telescope/health.lua:75
+#, lua-format
+msgid "%s installed."
+msgstr ""
+
+#: lua/telescope/health.lua:77
+#, lua-format
+msgid "%s not found."
+msgstr ""
+
+#: lua/telescope/health.lua:88
+msgid "Checking external dependencies"
+msgstr ""
+
+#: lua/telescope/health.lua:94
+#, lua-format
+msgid "%s: not found."
+msgstr ""
+
+#: lua/telescope/health.lua:96
+#, lua-format
+msgid "Install %s for extended capabilities"
+msgstr ""
+
+#: lua/telescope/health.lua:101
+#, lua-format
+msgid "`%s` finder will not function without %s installed."
+msgstr ""
+
+#: lua/telescope/health.lua:107
+msgid "(unknown version)"
+msgstr ""
+
+#: lua/telescope/health.lua:108
+#, lua-format
+msgid "%s: found %s"
+msgstr ""
+
+#: lua/telescope/health.lua:114
+msgid "===== Installed extensions ====="
+msgstr ""
+
 #: lua/telescope/health.lua:125
 #, lua-format
 msgid "Telescope Extension: `%s`"
+msgstr ""
+
+#: lua/telescope/health.lua:129
+msgid "No healthcheck provided"
 msgstr ""
 
 #: lua/telescope/previewers/term_previewer.lua:46
@@ -185,6 +235,12 @@ msgstr ""
 msgid "'%s' extension doesn't exist or isn't installed: %s"
 msgstr ""
 
+#: lua/telescope/mappings.lua:331
+msgid ""
+"Attach mappings must always return a value. `true` means use default "
+"mappings, `false` means only use attached mappings"
+msgstr ""
+
 #: lua/telescope/pickers.lua:608
 #, lua-format
 msgid "`initial_mode` should be one of ['normal', 'insert'] but passed %s"
@@ -203,6 +259,11 @@ msgstr ""
 #: lua/telescope/pickers.lua:1192
 #, lua-format
 msgid "can't identify old caret in line: %s"
+msgstr ""
+
+#: lua/telescope/pickers.lua:1523
+#, lua-format
+msgid "Unknown selection strategy: %s"
 msgstr ""
 
 #: lua/telescope/actions/init.lua:553 lua/telescope/actions/init.lua:687
@@ -385,6 +446,11 @@ msgstr ""
 msgid "%s (%s)"
 msgstr ""
 
+#: lua/telescope/actions/set.lua:30
+#, lua-format
+msgid "'telescope.actions.set' does not have a value: %s"
+msgstr ""
+
 #: lua/telescope/actions/set.lua:98
 #, lua-format
 msgid ""
@@ -410,6 +476,13 @@ msgstr ""
 
 #: lua/telescope/actions/set.lua:155
 msgid "Could not do anything with blank line..."
+msgstr ""
+
+#: lua/telescope/actions/layout.lua:132
+#, lua-format
+msgid ""
+"Not a valid layout setup: %s\n"
+"Should be a string or a table"
 msgstr ""
 
 #: lua/telescope/actions/history.lua:121 lua/telescope/actions/history.lua:150
@@ -510,6 +583,10 @@ msgstr ""
 
 #: lua/telescope/utils.lua:560
 msgid "cmd has to be a table"
+msgstr ""
+
+#: lua/telescope/utils.lua:693
+msgid "Invalid error level"
 msgstr ""
 
 #: lua/telescope/utils.lua:696
@@ -818,6 +895,11 @@ msgstr ""
 
 #: lua/telescope/builtin/__git.lua:410
 msgid "No changes found"
+msgstr ""
+
+#: lua/telescope/builtin/__git.lua:457
+#, lua-format
+msgid "%s is not a git directory"
 msgstr ""
 
 #: lua/telescope/builtin/__diagnostics.lua:78

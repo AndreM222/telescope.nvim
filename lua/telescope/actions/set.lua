@@ -27,7 +27,7 @@ local transform_mod = require("telescope.actions.mt").transform_mod
 
 local action_set = setmetatable({}, {
   __index = function(_, k)
-    error("'telescope.actions.set' does not have a value: " .. tostring(k))
+    error(Msgstr("'telescope.actions.set' does not have a value: %s", {tostring(k)}))
   end,
 })
 

@@ -69,12 +69,12 @@ local M = {}
 
 M.check = function()
   -- Required lua libs
-  start "Checking for required plugins"
+  start(Msgstr("Checking for required plugins"))
   for _, plugin in ipairs(required_plugins) do
     if lualib_installed(plugin.lib) then
-      ok(plugin.lib .. " installed.")
+      ok(Msgstr("%s installed.", {plugin.lib}))
     else
-      local lib_not_installed = plugin.lib .. " not found."
+      local lib_not_installed = Msgstr("%s not found.", { plugin.lib })
       if plugin.optional then
         warn(("%s %s"):format(lib_not_installed, plugin.info))
       else
@@ -85,33 +85,33 @@ M.check = function()
 
   -- external dependencies
   -- TODO: only perform checks if user has enabled dependency in their config
-  start "Checking external dependencies"
+  start(Msgstr("Checking external dependencies"))
 
   for _, opt_dep in pairs(optional_dependencies) do
     for _, package in ipairs(opt_dep.package) do
       local installed, version = check_binary_installed(package)
       if not installed then
-        local err_msg = ("%s: not found."):format(package.name)
+        local err_msg = Msgstr("%s: not found.", {package.name})
         if package.optional then
-          warn(("%s %s"):format(err_msg, ("Install %s for extended capabilities"):format(package.url)))
+          warn(("%s %s"):format(err_msg, Msgstr("Install %s for extended capabilities", {package.url})))
         else
           error(
             ("%s %s"):format(
               err_msg,
-              ("`%s` finder will not function without %s installed."):format(opt_dep.finder_name, package.url)
+              Msgstr("`%s` finder will not function without %s installed.", {opt_dep.finder_name, package.url})
             )
           )
         end
       else
         local eol = version:find "\n"
-        local ver = eol and version:sub(0, eol - 1) or "(unknown version)"
-        ok(("%s: found %s"):format(package.name, ver))
+        local ver = eol and version:sub(0, eol - 1) or Msgstr("(unknown version)")
+        ok(Msgstr("%s: found %s", { package.name, ver }))
       end
     end
   end
 
   -- Extensions
-  start "===== Installed extensions ====="
+  start(Msgstr("===== Installed extensions ====="))
 
   local installed = {}
   for extension_name, _ in pairs(extension_info) do
@@ -126,7 +126,7 @@ M.check = function()
     if extension_healthcheck then
       extension_healthcheck()
     else
-      info "No healthcheck provided"
+      info(Msgstr("No healthcheck provided"))
     end
   end
 end

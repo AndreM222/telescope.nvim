@@ -454,7 +454,7 @@ local try_worktrees = function(opts)
     end
   end
 
-  error(opts.cwd .. " is not a git directory")
+  error(Msgstr("%s is not a git directory", {opts.cwd}))
 end
 
 local current_path_toplevel = function()

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-04 17:34-0400\n"
+"POT-Creation-Date: 2025-07-05 10:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,10 +40,60 @@ msgstr ""
 msgid "    %s"
 msgstr ""
 
+#: lua/telescope/health.lua:72
+msgid "Checking for required plugins"
+msgstr "必要なプラグインを確認中"
+
+#: lua/telescope/health.lua:75
+#, lua-format
+msgid "%s installed."
+msgstr "%s がインストールされました。"
+
+#: lua/telescope/health.lua:77
+#, lua-format
+msgid "%s not found."
+msgstr "%s が見つかりません"
+
+#: lua/telescope/health.lua:88
+msgid "Checking external dependencies"
+msgstr "外部依存関係を確認中"
+
+#: lua/telescope/health.lua:94
+#, lua-format
+msgid "%s: not found."
+msgstr "%s：見つかりませんでした。"
+
+#: lua/telescope/health.lua:96
+#, lua-format
+msgid "Install %s for extended capabilities"
+msgstr "拡張機能のために %s をインストールしてください"
+
+#: lua/telescope/health.lua:101
+#, lua-format
+msgid "`%s` finder will not function without %s installed."
+msgstr "%s ファインダーは %s がインストールされていないと動作しません。"
+
+#: lua/telescope/health.lua:107
+msgid "(unknown version)"
+msgstr "（不明なバージョン）"
+
+#: lua/telescope/health.lua:108
+#, lua-format
+msgid "%s: found %s"
+msgstr "%s：%s が見つかりました"
+
+#: lua/telescope/health.lua:114
+msgid "===== Installed extensions ====="
+msgstr "===== インストール済み拡張機能 ====="
+
 #: lua/telescope/health.lua:125
 #, lua-format
 msgid "Telescope Extension: `%s`"
-msgstr "Telescope拡張: `%s`"
+msgstr "Telescope拡張：`%s`"
+
+#: lua/telescope/health.lua:129
+msgid "No healthcheck provided"
+msgstr "ヘルスチェックが提供されていません"
 
 #: lua/telescope/previewers/term_previewer.lua:46
 #, lua-format
@@ -143,7 +193,7 @@ msgstr "自動コマンドプレビュー"
 #: lua/telescope/previewers/buffer_previewer.lua:1043
 #, lua-format
 msgid " augroup: %s - [ %d entries ]"
-msgstr " augroup: %s - [ %d エントリ ]"
+msgstr " augroup：%s - [ %d エントリ ]"
 
 #: lua/telescope/previewers/buffer_previewer.lua:1054
 msgid "  %-14s▏%-08s %s"
@@ -161,12 +211,12 @@ msgstr ""
 #: lua/telescope/config/resolve.lua:99
 #, lua-format
 msgid "Invalid configuration option for '%s': '%s'"
-msgstr "'%s'の設定オプションが無効です: '%s'"
+msgstr "'%s'の設定オプションが無効です：'%s'"
 
 #: lua/telescope/_.lua:266
 #, lua-format
 msgid "Err: %s, Data: '%s'"
-msgstr "エラー: %s, データ: '%s'"
+msgstr "エラー：%s, データ：'%s'"
 
 #: lua/telescope/config.lua:425
 #, lua-format
@@ -185,7 +235,15 @@ msgstr "結果"
 #: lua/telescope/_extensions/init.lua:12
 #, lua-format
 msgid "'%s' extension doesn't exist or isn't installed: %s"
-msgstr "'%s'拡張が存在しないかインストールされていません: %s"
+msgstr "'%s'拡張が存在しないかインストールされていません：%s"
+
+#: lua/telescope/mappings.lua:331
+msgid ""
+"Attach mappings must always return a value. `true` means use default "
+"mappings, `false` means only use attached mappings"
+msgstr ""
+"Attach mappings は常に値を返す必要があります。`true` はデフォルトの"
+"マッピングを使用することを意味し、`false` は添付されたマッピングのみを使用することを意味します。"
 
 #: lua/telescope/pickers.lua:608
 #, lua-format
@@ -207,7 +265,12 @@ msgstr "バッファ %d の行 %d で行が見つかりません"
 #: lua/telescope/pickers.lua:1192
 #, lua-format
 msgid "can't identify old caret in line: %s"
-msgstr "行内の古いカーソルを識別できません: %s"
+msgstr "行内の古いカーソルを識別できません：%s"
+
+#: lua/telescope/pickers.lua:1523
+#, lua-format
+msgid "Unknown selection strategy: %s"
+msgstr "不明な選択戦略：%s"
 
 #: lua/telescope/actions/init.lua:553 lua/telescope/actions/init.lua:687
 msgid "Missing the new branch name"
@@ -216,63 +279,63 @@ msgstr "新しいブランチ名が不足しています"
 #: lua/telescope/actions/init.lua:557
 #, lua-format
 msgid "Create new branch '%s'? [y/n]: "
-msgstr "新しいブランチ '%s' を作成しますか？ [y/n]: "
+msgstr "新しいブランチ '%s' を作成しますか？[y/n]："
 
 #: lua/telescope/actions/init.lua:560
 #, lua-format
 msgid "branch creation canceled: '%s'"
-msgstr "ブランチ作成がキャンセルされました: '%s'"
+msgstr "ブランチ作成がキャンセルされました：'%s'"
 
 #: lua/telescope/actions/init.lua:571
 #, lua-format
 msgid "Switched to a new branch: %s"
-msgstr "新しいブランチに切り替えました: %s"
+msgstr "新しいブランチに切り替えました：%s"
 
 #: lua/telescope/actions/init.lua:577
 #, lua-format
 msgid "Error when creating new branch: '%s' Git returned '%s'"
 msgstr ""
-"新しいブランチの作成中にエラーが発生しました: '%s' Gitが返しました '%s'"
+"新しいブランチの作成中にエラーが発生しました：'%s' Gitが返しました '%s'"
 
 #: lua/telescope/actions/init.lua:599
 #, lua-format
 msgid "applied: '%s' "
-msgstr "適用されました: '%s' "
+msgstr "適用されました：'%s' "
 
 #: lua/telescope/actions/init.lua:604
 #, lua-format
 msgid "Error when applying: %s. Git returned: '%s'"
-msgstr "適用中にエラーが発生しました: %s. Gitが返しました: '%s'"
+msgstr "適用中にエラーが発生しました：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:623
 #, lua-format
 msgid "Checked out: %s"
-msgstr "チェックアウトしました: %s"
+msgstr "チェックアウトしました：%s"
 
 #: lua/telescope/actions/init.lua:630
 #, lua-format
 msgid "Error when checking out: %s. Git returned: '%s'"
-msgstr "チェックアウト中にエラーが発生しました: %s. Gitが返しました: '%s'"
+msgstr "チェックアウト中にエラーが発生しました：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:659
 #, lua-format
 msgid "Switched to: '%s'"
-msgstr "切り替えました: '%s'"
+msgstr "切り替えました：'%s'"
 
 #: lua/telescope/actions/init.lua:665
 #, lua-format
 msgid "Error when switching to: %s. Git returned: '%s'"
-msgstr "切り替え中にエラーが発生しました: %s. Gitが返しました: '%s'"
+msgstr "切り替え中にエラーが発生しました：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:695
 #, lua-format
 msgid "Renamed branch: '%s'"
-msgstr "ブランチ名を変更しました: '%s'"
+msgstr "ブランチ名を変更しました：'%s'"
 
 #: lua/telescope/actions/init.lua:701
 #, lua-format
 msgid "Error when renaming branch: %s. Git returned: '%s'"
-msgstr "ブランチ名の変更中にエラーが発生しました: %s. Gitが返しました: '%s'"
+msgstr "ブランチ名の変更中にエラーが発生しました：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:725 lua/telescope/actions/init.lua:766
 #: lua/telescope/actions/init.lua:831
@@ -282,12 +345,12 @@ msgstr "アクションがキャンセルされました"
 #: lua/telescope/actions/init.lua:753
 #, lua-format
 msgid "Tracking branch: %s"
-msgstr "追跡ブランチ: %s"
+msgstr "追跡ブランチ：%s"
 
 #: lua/telescope/actions/init.lua:754
 #, lua-format
 msgid "Error when tracking branch: %s. Git returned: '%s'"
-msgstr "ブランチ追跡中にエラーが発生しました: %s. Gitが返しました: '%s'"
+msgstr "ブランチ追跡中にエラーが発生しました：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:763
 msgid "Do you really want to delete the selected branches? [Y/n] "
@@ -296,12 +359,12 @@ msgstr "選択されたブランチを本当に削除しますか？ [Y/n] "
 #: lua/telescope/actions/init.lua:780
 #, lua-format
 msgid "Deleted branch: %s"
-msgstr "ブランチを削除しました: %s"
+msgstr "ブランチを削除しました：%s"
 
 #: lua/telescope/actions/init.lua:785
 #, lua-format
 msgid "Error when deleting branch: %s. Git returned: '%s'"
-msgstr "ブランチ削除中にエラーが発生しました: %s. Gitが返しました: '%s'"
+msgstr "ブランチ削除中にエラーが発生しました：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:798
 #, lua-format
@@ -311,12 +374,12 @@ msgstr "ブランチ %s を本当にマージしますか？ [Y/n] "
 #: lua/telescope/actions/init.lua:799
 #, lua-format
 msgid "Merged branch: %s"
-msgstr "ブランチをマージしました: %s"
+msgstr "ブランチをマージしました：%s"
 
 #: lua/telescope/actions/init.lua:800
 #, lua-format
 msgid "Error when merging branch: %s. Git returned: '%s'"
-msgstr "ブランチマージ中にエラーが発生しました: %s. Gitが返しました: '%s'"
+msgstr "ブランチマージ中にエラーが発生しました：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:811
 #, lua-format
@@ -326,12 +389,12 @@ msgstr "ブランチ %s を本当にリベースしますか？ [Y/n] "
 #: lua/telescope/actions/init.lua:812
 #, lua-format
 msgid "Rebased branch: %s"
-msgstr "ブランチをリベースしました: %s"
+msgstr "ブランチをリベースしました：%s"
 
 #: lua/telescope/actions/init.lua:813
 #, lua-format
 msgid "Error when rebasing branch: %s. Git returned: '%s'"
-msgstr "ブランチリベース中にエラーが発生しました: %s. Gitが返しました: '%s'"
+msgstr "ブランチリベース中にエラーが発生しました：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:828
 #, lua-format
@@ -341,12 +404,12 @@ msgstr "本当に %s を %s にリセットしますか？ [Y/n] "
 #: lua/telescope/actions/init.lua:841
 #, lua-format
 msgid "Reset to: '%s'"
-msgstr "リセットしました: '%s'"
+msgstr "リセットしました：'%s'"
 
 #: lua/telescope/actions/init.lua:846
 #, lua-format
 msgid "Rest to: %s. Git returned: '%s'"
-msgstr "リセット: %s. Gitが返しました: '%s'"
+msgstr "リセット：%s. Gitが返しました：'%s'"
 
 #: lua/telescope/actions/init.lua:1087
 msgid "No tag pre-filtering set for this picker"
@@ -390,6 +453,11 @@ msgstr "ファジー検索"
 msgid "%s (%s)"
 msgstr ""
 
+#: lua/telescope/actions/set.lua:30
+#, lua-format
+msgid "'telescope.actions.set' does not have a value: %s"
+msgstr "'telescope.actions.set' に値がありません：%s"
+
 #: lua/telescope/actions/set.lua:98
 #, lua-format
 msgid ""
@@ -397,7 +465,7 @@ msgid ""
 "Valid commands are: %s."
 msgstr ""
 "%q に関連付けられたバッファコマンドがありませんでした。\n"
-"有効なコマンドは: %s です。"
+"有効なコマンドは：%s です。"
 
 #: lua/telescope/actions/set.lua:105
 #, lua-format
@@ -418,6 +486,15 @@ msgstr "現在何も選択されていません"
 #: lua/telescope/actions/set.lua:155
 msgid "Could not do anything with blank line..."
 msgstr "空行では何もできませんでした..."
+
+#: lua/telescope/actions/layout.lua:132
+#, lua-format
+msgid ""
+"Not a valid layout setup: %s\n"
+"Should be a string or a table"
+msgstr ""
+"有効なレイアウト設定ではありません: %s\n"
+"文字列またはテーブルである必要があります"
 
 #: lua/telescope/actions/history.lua:121 lua/telescope/actions/history.lua:150
 msgid ""
@@ -451,7 +528,7 @@ msgid ""
 "Unsupported layout_config key for the %s strategy: %s\n"
 "%s"
 msgstr ""
-"%s戦略でサポートされていないlayout_configキー: %s\n"
+"%s戦略でサポートされていないlayout_configキー：%s\n"
 "%s"
 
 #: lua/telescope/pickers/layout_strategies.lua:220
@@ -484,18 +561,18 @@ msgid ""
 "Unknown prompt_position: %s\n"
 "%s"
 msgstr ""
-"不明なprompt_position: %s\n"
+"不明なprompt_position：%s\n"
 "%s"
 
 #: lua/telescope/pickers/scroller.lua:62
 #, lua-format
 msgid "Must never return a negative row: { result = %s, args = { %s %s %s } }"
-msgstr "負の行を返してはいけません: { result = %s, args = { %s %s %s } }"
+msgstr "負の行を返してはいけません：{ result = %s, args = { %s %s %s } }"
 
 #: lua/telescope/pickers/scroller.lua:74
 #, lua-format
 msgid "Must never exceed max results: { result = %s, args = { %s %s %s } }"
-msgstr "最大結果を超えてはいけません: { result = %s, args = { %s %s %s } }"
+msgstr "最大結果を超えてはいけません：{ result = %s, args = { %s %s %s } }"
 
 #: lua/telescope/utils.lua:122
 msgid ""
@@ -526,6 +603,10 @@ msgstr "%s ignore_symbolがクエリ結果からすべてを削除しました"
 #: lua/telescope/utils.lua:560
 msgid "cmd has to be a table"
 msgstr "cmdはテーブルである必要があります"
+
+#: lua/telescope/utils.lua:693
+msgid "Invalid error level"
+msgstr "無効なエラーレベルです"
 
 #: lua/telescope/utils.lua:696
 #, lua-format
@@ -841,6 +922,11 @@ msgstr "Gitスタッシュ"
 msgid "No changes found"
 msgstr "変更は見つかりませんでした"
 
+#: lua/telescope/builtin/__git.lua:457
+#, lua-format
+msgid "%s is not a git directory"
+msgstr "%sはGitディレクトリではありません"
+
 #: lua/telescope/builtin/__diagnostics.lua:78
 msgid ""
 "Invalid severity parameters. Both a specific severity and a limit/bound is "
@@ -868,7 +954,7 @@ msgstr "ドキュメント診断"
 #: lua/telescope/builtin/__lsp.lua:16
 #, lua-format
 msgid "Error handling %s: %s"
-msgstr "%s の処理中にエラー: %s"
+msgstr "%s の処理中にエラー：%s"
 
 #: lua/telescope/builtin/__lsp.lua:63
 #, lua-format
@@ -878,12 +964,12 @@ msgstr "%d. %s"
 #: lua/telescope/builtin/__lsp.lua:97
 #, lua-format
 msgid "Error when preparing call hierarchy: %s"
-msgstr "呼び出し階層の準備中にエラー: %s"
+msgstr "呼び出し階層の準備中にエラー：%s"
 
 #: lua/telescope/builtin/__lsp.lua:233
 #, lua-format
 msgid "Error when executing %s : %s"
-msgstr "%s の実行中にエラー : %s"
+msgstr "%s の実行中にエラー ：%s"
 
 #: lua/telescope/builtin/__lsp.lua:241
 #, lua-format
@@ -893,7 +979,7 @@ msgstr "%s が見つかりません"
 #: lua/telescope/builtin/__lsp.lua:351
 #, lua-format
 msgid "Error when finding document symbols: %s"
-msgstr "ドキュメントシンボルの検索中にエラー: %s"
+msgstr "ドキュメントシンボルの検索中にエラー：%s"
 
 #: lua/telescope/builtin/__lsp.lua:357
 msgid "No results from textDocument/documentSymbol"
@@ -910,20 +996,20 @@ msgstr "LSPドキュメントシンボル"
 #: lua/telescope/builtin/__lsp.lua:409
 #, lua-format
 msgid "Error when finding workspace symbols: %s"
-msgstr "ワークスペースシンボルの検索中にエラー: %s"
+msgstr "ワークスペースシンボルの検索中にエラー：%s"
 
 #: lua/telescope/builtin/__lsp.lua:429
 msgid ""
 "No results from workspace/symbol. Maybe try a different query: 'Telescope "
 "lsp_workspace_symbols query=example'"
 msgstr ""
-"workspace/symbol から結果がありません。別のクエリを試してください: "
+"workspace/symbol から結果がありません。別のクエリを試してください："
 "'Telescope lsp_workspace_symbols query=example'"
 
 #: lua/telescope/builtin/__lsp.lua:467
 #, lua-format
 msgid "Error when executing workspace/symbol : %s"
-msgstr "workspace/symbol の実行中にエラー : %s"
+msgstr "workspace/symbol の実行中にエラー ：%s"
 
 #: lua/telescope/builtin/__lsp.lua:522
 msgid "no client attached"
